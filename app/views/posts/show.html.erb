@@ -1,2 +1,5 @@
-<%= @post.title %>
-<%= @post.body %>
+<p><%= @post.title %></p>
+
+<div>
+	<%= Sanitize.fragment(@post.body , Sanitize::Config::RELAXED).html_safe %>
+</div>

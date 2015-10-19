@@ -1,11 +1,20 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show, :edit]
+  before_action :find_post, only: [:show, :edit, :update]
 
   def index
     @posts = Post.all
   end
 
   def edit
+  end
+
+  def update
+    if @post.update(posts_params)
+      redirect_to @post
+    else
+      flash[:alert] = "error al editar"
+      render :edit
+    end
   end
 
   def new
@@ -28,7 +37,7 @@ class PostsController < ApplicationController
 
   private
     def posts_params
-    	params.require(:post).permit(:title, :body)
+    	params.require(:post).permit(:title, :body, :markup_body)
     end
 
     def find_post
