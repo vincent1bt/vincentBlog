@@ -3,3 +3,5 @@
 <div>
 	<%= Sanitize.fragment(@post.body , Sanitize::Config::RELAXED).html_safe %>
 </div>
+
+<p><%= @post.user.username if @post.user %></p>

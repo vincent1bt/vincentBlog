@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(posts_params)
+    @post = @current_user.posts.create(posts_params)
     if @post.save
     	redirect_to @post
     	flash[:notice] = "post creado"
