@@ -9,3 +9,8 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( highlight.js )
+Rails.application.config.assets.precompile += %w( post.js )
+Rails.application.config.assets.precompile += %w( common.js )
+Rails.application.config.assets.precompile += %w( module.js )
+Rails.application.config.assets.precompile += %w( postsNew.js )

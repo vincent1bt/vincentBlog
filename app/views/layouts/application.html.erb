@@ -9,17 +9,6 @@
 </head>
 <body>
 <div id="fb-root"></div>
-<script>
-  $(document).on("ready page:load" ,function() {
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=497828433689008";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
- });
-</script>
 
 <%= render "./layouts/nav" %>
 
@@ -40,6 +29,7 @@
        </div>
     <% end %>
 </section>
+
 <% end %>
 <div class="container">
   <%= yield %>
