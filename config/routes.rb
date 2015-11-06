@@ -1,14 +1,33 @@
 Rails.application.routes.draw do
   resources :categories
-  resources :users
-  get "login" => 'sessions#new'
-  post "login" => "sessions#create"
-  delete "logout" => "sessions#destroy", as: :destroy_session
-
-
- 
-  resources :posts
+  resources :posts#, only: [:show, :index, :destroy]
+  #resources :users
   root "posts#index"
+
+  namespace :admin, constraints: {subdomain: "dashadmin"}, path: "/" do
+    resources :dashboard, only: [:index]
+    get "login" => 'sessions#new'
+    post "login" => "sessions#create"
+    delete "logout" => "sessions#destroy", as: :destroy_session
+  end
+  
+  #get "categorias/:category_name" => "categories#show", as: :category
+  #get "categorias" => "categories#index", as: :categories
+  #get "posts/:category" => "posts#index", as: :programacion
+  
+  # resources :posts
+  
+  # root "posts#index"
+  # scope "/categorias" do
+  #   get "" => "categories#index", as: :categories
+  #   scope "/:category_name" do
+  #     get "" => "categories#show", as: :category
+  #     # get "/:id" => "posts#show", as: :post
+  #     #resources :posts, only: [:show]
+  #   end
+  #   # get "/:category_name" => "categories#show", as: :category
+  #   # get "/:category_name/:id" => "posts#show", as: :post_show
+  # end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

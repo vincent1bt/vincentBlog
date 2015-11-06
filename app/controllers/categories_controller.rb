@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: [:show, :edit, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def new
   	@category = Category.new
@@ -17,9 +18,20 @@ class CategoriesController < ApplicationController
   end
 
   def index
-  	@categories = Category.all
+    @categories = Category.all
+    respond_to do |format|
+        format.html 
+        format.json { render json: @categories }
+    end
   end
 
+  def show
+  end
+
+  def destroy
+    @category.destroy
+    redirect_to admin_dashboard_index_path
+  end
 
   private
     def category_params
@@ -27,6 +39,6 @@ class CategoriesController < ApplicationController
     end
 
     def find_category
-    	@category = Category.find(params[:id])
+    	@category = Category.friendly.find(params[:id])
     end
 end

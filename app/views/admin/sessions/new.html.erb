@@ -1,0 +1,14 @@
+<div class="login-container">
+	<%= form_for(:session, url: admin_login_path) do |f| %>
+	  <div class="login-container-email">
+	  	<%= f.email_field :email, placeholder: "Email" %>
+	  </div>
+	  
+	  <div class="login-container-password">
+	  	<%= f.password_field :password, placeholder: "Password" %>
+	  </div>
+	  <div class="login-container-button">
+		<%= f.submit "Iniciar sesion" %>	  	
+	  </div>
+	<% end %>
+</div>

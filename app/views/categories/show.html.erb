@@ -1,11 +1,11 @@
 <div class="posts-container">
   <div class="posts-container-title">
-    <h3 class="posts-container-title-h3">Posts</h3>
+    <h3 class="posts-container-title-h3">Posts de <%= @category.name %></h3>
   </div>
   
   <div class="posts-container-body">
     <ul class="posts-container-body-list">
-      <% @posts.each do |post| %>
+      <% @category.posts.each do |post| %>
         <li class="posts-container-body-list-item">
           <%= link_to post, class: "posts-container-body-list-item-link" do %>
             <p class="posts-container-body-list-item-parr"><%= post.title.capitalize %></p>

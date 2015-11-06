@@ -1,0 +1,48 @@
+<section class="new-container">
+  <p class="new-container-title">
+    <%= title %>
+  </p>  
+  <%= form_for(@post, html: { id: "posts_form", class: "new-container-form"}) do |f| %>
+    <div class="new-container-form-title">
+      <%= f.text_field :title, placeholder: "Titulo" %>
+    </div>
+
+    <div class="new-container-form-body">
+      <%= f.hidden_field :body, id: "body-textarea" %>
+      <%= f.hidden_field :markup_body, id: "markup-body-textarea" %>
+      <div id="epiceditor" class="new-container-form-body-epiceditor">
+      </div>
+    </div>
+
+    <div class="new-container-form-categorias"> 
+      <p class="new-container-form-categorias-parr">Categorias</p> 
+      <ul class="new-container-form-categorias-list">
+        <% @categories.each do |category| %>
+          <li class="new-container-form-categorias-list-item"> 
+            <%= check_box_tag "categories[]", category.id %> <%= category.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="new-container-form-but">
+      <%= f.submit "Crear" %>
+    </div>
+    
+  <% end %>
+</section>
+
+ <script>
+ 	var editor = new EpicEditor({
+ 		textarea: "markup-body-textarea",
+ 		file: {
+ 			name: "new_post"
+ 		}
+ 	});
+
+ 	editor.load();
+ 	$("#posts_form").on("submit", function(){
+ 		$("#body-textarea").val(editor.exportFile("new_post", "html"));
+ 		$("#markup-body-textarea").val(editor.exportFile("new_post"));
+ 	});
+
+ </script>

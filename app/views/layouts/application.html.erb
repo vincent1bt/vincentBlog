@@ -2,23 +2,50 @@
 <html>
 <head>
   <title>VincetBlog</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if logged_in? %>
-    hola <%= @current_user.username %>
-    <%= link_to "cerrar sesion", destroy_session_path, method: :delete%>
-  <% end %> <br>
-  <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice]%></div>
-  <% end %>
-  <% if flash[:alert] %>
-    <div class="alert"><%= flash[:alert]%></div>
-  <% end %>
-  
+<div id="fb-root"></div>
+<script>
+  $(document).on("ready page:load" ,function() {
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=497828433689008";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+ });
+</script>
+
+<%= render "./layouts/nav" %>
+
+<% if flash[:notice] or flash[:alert]%>
+<section class="alerts-container">
+     <% if flash[:notice] %>
+       <div class="alerts-container-notice">
+         <p class="alerts-container-notice-parr">
+           <%= flash[:notice]%>
+         </p>
+       </div>
+     <% end %>
+     <% if flash[:alert] %>
+       <div class="alerts-container-alert">
+         <p class="alerts-container-alert-parr">
+           <%= flash[:alert]%>
+         </p>
+       </div>
+    <% end %>
+</section>
+<% end %>
+<div class="container">
   <%= yield %>
+</div>
+
+<%= render "./layouts/footer" %>
 
 </body>
 </html>

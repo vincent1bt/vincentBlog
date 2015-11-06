@@ -1,5 +1,17 @@
-<% @categories.each do |category| %>
-  <%= category.name %> <br>
-<% end %>
-
-<%= link_to "nueva categoria", new_category_path %>
+<div class="categories-container">
+  <div class="categories-container-title">
+    <h3 class="categories-container-title-h3">Categorias</h3>
+  </div>
+  
+  <div class="categories-container-text">
+    <ul class="categories-container-text-list">
+      <% @categories.each do |category| %>
+        <li class="categories-container-text-list-item">
+          <%= link_to category, class: "categories-container-text-list-item-link" do %>
+            <p class="categories-container-text-list-item-parr"><%= category.name.capitalize %></p>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

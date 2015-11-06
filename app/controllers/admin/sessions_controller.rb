@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Admin::SessionsController < ApplicationController
   def new
   end
 
@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   	if user && user.authenticate(params[:session][:password])
   		log_in(user)
   		flash[:notice] = "welcome"
-  		redirect_to root_path
+  		redirect_to admin_dashboard_index_path
   	else
   		flash.now[:alert] = 'invalid'
   		render :new

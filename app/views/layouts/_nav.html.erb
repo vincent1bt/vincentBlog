@@ -1,0 +1,29 @@
+<header class="nav">
+  <div class="nav-mobile">
+      <h3 class="nav-mobile-title">Vincent Blog</h3>
+      <button class="nav-mobile-button" id="navBtn">
+        <i>Menu</i>
+      </button>
+  </div>
+  <nav class="nav-container">
+    <ul class="nav-container-list" id="listMenu">
+    	<li class="nav-container-list-item">
+    	  <%= link_to "Posts", posts_path, class: "nav-container-list-item-link" %>
+    	</li>
+    	<li class="nav-container-list-item">
+    	  <%= link_to "Categorias", categories_path, class: "nav-container-list-item-link" %>
+    	</li>
+    	<li class="nav-container-list-item">
+    	  <%= link_to "Sobre", posts_path, class: "nav-container-list-item-link" %>
+    	</li>
+    	  <% if logged_in? %>
+          <li class="nav-container-list-item">
+            <%= link_to @current_user.username, admin_dashboard_index_url, class: "nav-container-list-item-link"%>
+          </li>
+        <% end %>
+    </ul>
+  </nav>
+</header>
+
+<script>
+</script>

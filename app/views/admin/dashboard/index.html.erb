@@ -1,0 +1,18 @@
+<div class="dashboard-container">
+	<div class="dashboard-container-form" id="containerM">
+		
+	</div>
+	<ul class="dashboard-container-list">
+	  <% @posts.each do |post| %>
+	    <li class="dashboard-container-list-item">
+	    	<p class="dashboard-container-list-item-parr">
+	    	  <%= post.title %>
+	    	</p>
+	    	<%= link_to "Eliminar", post, method: :delete, data: { confirm: "yes?" }, class: "dashboard-container-list-item-link dashboard-container-list-item-link--delete" %>
+	    	<%= link_to "Editar", edit_post_path(post.id), class: "dashboard-container-list-item-link"%> <br>
+	    </li>
+	  <% end %>
+	</ul>
+	<%= link_to "Nuevo", new_post_path, class: "dashboard-container-link" %>
+	<%= link_to "Cerrar sesion", admin_destroy_session_path, class: "dashboard-container-list-item-link dashboard-container-list-item-link--delete", method: :delete %>
+</div>

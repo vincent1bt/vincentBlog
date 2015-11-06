@@ -1,7 +1,36 @@
-<p><%= @post.title %></p>
+<div class="post-container">
+  <div class="posts-container-header">
+    <p class="post-container-header-time"><%= @post.created_at.strftime("%d %b. %Y") %></p>
+    <h1 class="post-container-header-title"><%= @post.title.capitalize %></h1>
+  </div>
 
-<div>
-	<%= Sanitize.fragment(@post.body , Sanitize::Config::RELAXED).html_safe %>
+  <article class="post-container-body">
+    <%= Sanitize.fragment(@post.body , Sanitize::Config::RELAXED).html_safe %>
+  </article>
+
+  <div class="post-container-categories">
+    <ul class="post-container-categories-list">
+      <li class="post-container-categories-list-item">
+        Categorias: 
+      </li>
+      <% @post.categories.each do |category| %>
+        <li class="post-container-categories-list-item">
+          <%= link_to category.name, category, class: "post-container-categories-list-item-link"%>
+        </li>
+      <% end %>
+      <br/>
+      <li class="post-container-categories-list-item">
+        <%= link_to "Todas las categorias", categories_path, class: "post-container-categories-list-item-link" %>
+      </li>
+      <li class="post-container-categories-list-item">
+        <%= link_to "Todos los posts", posts_path, class: "post-container-categories-list-item-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="post-container-footer">
+    <h4 class="post-container-footer-h4">Si tienes alguna duda o te gusto el post deja un comentario: </h4>
+    <div class="fb-comments" data-href="http://vcap.me:3000/<%= @post.slug %>" data-numposts="3" data-width="100%" data-order-by="reverse_time">
+    </div>
+  </div>
 </div>
-
-<p><%= @post.user.username if @post.user %></p>

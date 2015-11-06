@@ -16,6 +16,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "passenger", "5.0.11"
 gem 'epic-editor-rails'
 gem "sanitize"
+gem 'friendly_id', '~> 5.1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development, :test do

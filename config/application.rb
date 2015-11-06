@@ -17,6 +17,7 @@ module VincetBlog
         g.helper      false
         g.view_specs false
         g.helper_specs false
+        g.helper false
     end
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.

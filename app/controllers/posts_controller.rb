@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show, :edit, :update]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
 
   def index
     @posts = Post.all
   end
 
   def edit
+    @categories = Category.all
   end
 
   def update
@@ -20,10 +21,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @categories = Category.all
   end
 
   def create
-    @post = @current_user.posts.create(posts_params)
+    @post = @current_user.posts.new(posts_params)
+    @post.categories = params[:categories]
     if @post.save
     	redirect_to @post
     	flash[:notice] = "post creado"
@@ -36,12 +39,17 @@ class PostsController < ApplicationController
   def show
   end
 
+  def destroy
+    @post.destroy
+    redirect_to admin_dashboard_index_path
+  end
+
   private
     def posts_params
-    	params.require(:post).permit(:title, :body, :markup_body)
+    	params.require(:post).permit(:title, :body, :markup_body, :categories)
     end
 
     def find_post
-    	@post = Post.find(params[:id])
+    	@post = Post.friendly.find(params[:id])
     end
 end
