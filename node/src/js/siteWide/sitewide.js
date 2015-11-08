@@ -1,9 +1,9 @@
 var loadCSS = require("./loadCSS");
 
 (function() {
-    document.addEventListener('DOMContentLoaded', onDOMLoad);
-
-    function onDOMLoad() {
+    //DOMContentLoaded
+    //document.addEventListener("page:load", onDOMLoad);
+      //function onDOMLoad() {
       var navBtn = document.querySelector("#navBtn");
       var listMenu = document.querySelector("#listMenu");
 
@@ -13,5 +13,5 @@ var loadCSS = require("./loadCSS");
       function loadMenu() {
         listMenu.classList.toggle("nav-container-list--show");
       }
-    }
+    //}
 })()

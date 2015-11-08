@@ -1,5 +1,7 @@
 <% content_for(:title, "#{@post.title}")%>
 
+<%= render "/layouts_post/post_styles"%>
+
 <div class="post-container">
   <div class="posts-container-header">
     <p class="post-container-header-time"><%= @post.created_at.strftime("%d %b. %Y") %></p>
@@ -37,7 +39,8 @@
   </div>
 </div>
 
-<%= javascript_include_tag 'hl', 'data-turbolinks-track' => false  %>
 <%= javascript_include_tag 'post', 'data-turbolinks-track' => false  %>
-<%= stylesheet_link_tag  'post/post', media: 'all' %>
+<%= javascript_include_tag 'hl', 'data-turbolinks-track' => false  %>
+
+
 

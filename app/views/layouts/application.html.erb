@@ -2,11 +2,10 @@
 <html>
 <head>
   <title> <%= title(yield :title)%> </title>
-
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta charset="UTF-8">
   <%= render "./layouts/styles" %>
-  <%= render "./layouts/scripts" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -20,6 +19,6 @@
 </div>
 
 <%= render "./layouts/footer" %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= render "./layouts/scripts" %>
 </body>
 </html>
