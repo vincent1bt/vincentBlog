@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import CategoryComponent from 'ncomponents/categories';
+import CategoryComponent from 'js/ncomponents/categories';
 
 (function() {
   document.addEventListener('DOMContentLoaded', onDOMLoad);

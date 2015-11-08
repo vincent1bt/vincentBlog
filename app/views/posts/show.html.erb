@@ -1,3 +1,5 @@
+<% content_for(:title, "#{@post.title}")%>
+
 <div class="post-container">
   <div class="posts-container-header">
     <p class="post-container-header-time"><%= @post.created_at.strftime("%d %b. %Y") %></p>

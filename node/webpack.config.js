@@ -8,7 +8,7 @@ module.exports = {
 	cache: true,
 	entry: {
 		react: path.join(srcPath, "module.js"),
-		sitewide: path.join(__dirname, "src/siteWide/nav.js"),
+		sitewide: path.join(__dirname, "src/siteWide/sitewide.js"),
 		post: path.join(__dirname, "src/posts/post.js")
 	},
 

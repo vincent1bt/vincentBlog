@@ -1,6 +1,6 @@
 <header class="nav">
   <div class="nav-mobile">
-      <h3 class="nav-mobile-title">Vincent Blog</h3>
+      <h3 class="nav-mobile-title">Vicente Rodríguez</h3>
       <button class="nav-mobile-button" id="navBtn">
         <i class="fa fa-bars fa-lg"></i>
       </button>
@@ -18,7 +18,7 @@
     	</li>
     	  <% if logged_in? %>
           <li class="nav-container-list-item">
-            <%= link_to @current_user.username, admin_dashboard_index_url, class: "nav-container-list-item-link"%>
+            <%= link_to @current_user.username, admin_dashboard_index_url, data: { no_turbolink: true }, class: "nav-container-list-item-link"%>
           </li>
         <% end %>
     </ul>

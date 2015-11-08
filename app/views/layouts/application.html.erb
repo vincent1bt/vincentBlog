@@ -1,41 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VincetBlog</title>
+  <title> <%= title(yield :title)%> </title>
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta charset="UTF-8">
+  <%= render "./layouts/styles" %>
+  <%= render "./layouts/scripts" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div id="fb-root"></div>
 
 <%= render "./layouts/nav" %>
+<%= render "./layouts/notice"%>
 
-<% if flash[:notice] or flash[:alert]%>
-<section class="alerts-container">
-     <% if flash[:notice] %>
-       <div class="alerts-container-notice">
-         <p class="alerts-container-notice-parr">
-           <%= flash[:notice]%>
-         </p>
-       </div>
-     <% end %>
-     <% if flash[:alert] %>
-       <div class="alerts-container-alert">
-         <p class="alerts-container-alert-parr">
-           <%= flash[:alert]%>
-         </p>
-       </div>
-    <% end %>
-</section>
-
-<% end %>
 <div class="container">
   <%= yield %>
 </div>
 
 <%= render "./layouts/footer" %>
-
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
