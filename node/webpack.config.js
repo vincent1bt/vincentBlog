@@ -15,8 +15,8 @@ module.exports = {
 	output: {
 		path: "./../app/assets/javascripts",
 		filename: '[name].js',
-		library: ['Example', '[name]'],
-		pathInfo: true
+		//library: ['Example', '[name]'],
+		pathInfo: false
 	},
 	resolve: {
 		root: srcPath,
@@ -26,7 +26,9 @@ module.exports = {
 	module: {
 		loaders: [
 			{
-				test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader', query: {stage:0},
+				test: /\.js?$/, exclude: /node_modules/,
+				loader: 'babel-loader',
+				query: {stage:0}
 			},
 			{
                 test: /\.css$/,
@@ -42,6 +44,6 @@ module.exports = {
 		new webpack.optimize.CommonsChunkPlugin("common.js"),
 		new ExtractTextPlugin("[name].css")
 	],
-	debug: true,
-	devtool: 'eval-cheap-module-source-map'
+	debug: true
+	//devtool: 'eval-cheap-module-source-map'
 };

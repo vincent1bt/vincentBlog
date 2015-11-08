@@ -7,7 +7,7 @@
     <ul class="posts-container-body-list">
       <% @posts.each do |post| %>
         <li class="posts-container-body-list-item">
-          <%= link_to post, class: "posts-container-body-list-item-link" do %>
+          <%= link_to post, data: { no_turbolink: true }, class: "posts-container-body-list-item-link" do %>
             <p class="posts-container-body-list-item-parr"><%= post.title.capitalize %></p>
           <% end %>
           <p class="posts-container-body-list-item-time"><%= post.created_at.strftime("%d %b. %Y") %></p>
