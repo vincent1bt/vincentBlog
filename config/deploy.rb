@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 
 set :application, 'vincent_blog'
-set :repo_url, 'git@github.com:vincent1bt/vincentBlog.git'
+set :repo_url, 'https://github.com/vincent1bt/vincentBlog.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
