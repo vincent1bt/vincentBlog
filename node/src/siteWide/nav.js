@@ -9,8 +9,5 @@
       function loadMenu() {
         listMenu.classList.toggle("nav-container-list--show");
       }
-
-
     }
-  
 })()

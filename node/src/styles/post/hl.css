@@ -105,3 +105,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .tex .hljs-formula {
   background: #073642;
 }
+
+code {
+  border-radius: 5px;
+}

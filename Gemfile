@@ -4,21 +4,20 @@ gem 'rails', '4.2.4'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-# gem 'therubyracer', platforms: :ruby
+
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem "passenger", "5.0.11"
 gem 'epic-editor-rails'
 gem "sanitize"
 gem 'friendly_id', '~> 5.1.0'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'font-awesome-sass'
+
 group :development, :test do
   gem 'byebug'
 end
@@ -26,5 +25,10 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-passenger', '>= 0.1.1'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
 end
 
