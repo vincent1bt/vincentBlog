@@ -73,6 +73,27 @@ gulp.task("post-styles", ["post:css", "html:postcss"])
 // ------------------------------------
 // ------------------------------------
 
+gulp.task("post:js", function() {
+	return browserify("./src/js/posts/post.js")
+		.bundle()
+		.pipe(source("post.js"))
+		.pipe(buffer())
+		.pipe(uglify())
+		.pipe(gulp.dest("./dist/scripts"));
+});
+
+gulp.task("html:postjs", function() {
+	gulp.src('./dist/html/_post_scripts.html.erb')
+	  .pipe(smoosher())
+	  .pipe(gulp.dest('./../app/views/layouts_post'));
+});
+
+gulp.task("posts-js", ["post:js", "html:postjs"]);
+
+// ------------------------------------ OTRAS TASKS
+// ------------------------------------
+// ------------------------------------
+
 gulp.task("dashboard", function() {
 	gulp.src("./src/styles/dashboard/dashboard.sass")
 	  .pipe(sass({outputStyle: "compressed"}).on("error", sass.logError))

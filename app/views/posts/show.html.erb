@@ -1,5 +1,5 @@
 <% content_for(:title, "#{@post.title}")%>
-
+<%= render "/layouts_post/post_scripts"%>
 <%= render "/layouts_post/post_styles"%>
 
 <div class="post-container">
@@ -33,13 +33,12 @@
   </div>
 
   <div class="post-container-footer">
+    <div class="fb-like" data-href="http://vincentblog.me/posts/<%= @post.slug %>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
     <h4 class="post-container-footer-h4">Si tienes alguna duda o te gusto el post deja un comentario: </h4>
-    <div class="fb-comments" data-href="http://vcap.me:3000/<%= @post.slug %>" data-numposts="3" data-width="100%" data-order-by="reverse_time">
+    <div class="fb-comments" data-href="http://vincentblog.me/posts/<%= @post.slug %>" data-numposts="3" data-width="100%" data-order-by="reverse_time">
     </div>
   </div>
 </div>
-
-<%= javascript_include_tag 'post', 'data-turbolinks-track' => false  %>
 <%= javascript_include_tag 'hl', 'data-turbolinks-track' => false  %>
 
 

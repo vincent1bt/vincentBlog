@@ -17,6 +17,7 @@ gem 'epic-editor-rails'
 gem "sanitize"
 gem 'friendly_id', '~> 5.1.0'
 gem 'font-awesome-sass'
+gem 'route_translator'
 
 group :development, :test do
   gem 'byebug'
