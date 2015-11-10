@@ -2,9 +2,10 @@
 <html>
 <head>
   <title> <%= title(yield :title)%> </title>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true, :async => true%>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta charset="UTF-8">
+  <meta property="fb:app_id" content="470272653097747" />
   <%= render "./layouts/styles" %>
   <%= csrf_meta_tags %>
 </head>
@@ -20,5 +21,6 @@
 
 <%= render "./layouts/footer" %>
 <%= render "./layouts/scripts" %>
+<%= render "./layouts/analytics" %>
 </body>
 </html>

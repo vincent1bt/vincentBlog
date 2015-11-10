@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :categories
-  resources :posts#, only: [:show, :index, :destroy]
-  #resources :users
+  #resources :categories
+  resources :posts
   root "posts#index"
+
+  localized do
+    resources :categories
+  end
 
   namespace :admin, constraints: {subdomain: "dashadmin"}, path: "/" do
     resources :dashboard, only: [:index]
