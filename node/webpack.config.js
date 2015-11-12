@@ -8,8 +8,6 @@ module.exports = {
 	cache: true,
 	entry: {
 		react: path.join(srcPath, "module.js"),
-		sitewide: path.join(__dirname, "src/siteWide/sitewide.js"),
-		post: path.join(__dirname, "src/posts/post.js")
 	},
 
 	output: {
@@ -29,20 +27,20 @@ module.exports = {
 				test: /\.js?$/, exclude: /node_modules/,
 				loader: 'babel-loader',
 				query: {stage:0}
-			},
-			{
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
-            },
-			{
-        		test: /\.sass$/,
-        		loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
-      		}
+			}
+			// {
+   //              test: /\.css$/,
+   //              loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+   //          },
+			// {
+   //      		test: /\.sass$/,
+   //      		loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
+   //    		}
 		]
 	},
 	pugins: [
 		new webpack.optimize.CommonsChunkPlugin("common.js"),
-		new ExtractTextPlugin("[name].css")
+		//new ExtractTextPlugin("[name].css")
 	],
 	debug: true
 	//devtool: 'eval-cheap-module-source-map'

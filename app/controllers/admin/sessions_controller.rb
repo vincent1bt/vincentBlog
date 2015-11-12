@@ -1,5 +1,7 @@
 class Admin::SessionsController < ApplicationController
   def new
+    #gem meta_tags SEO
+    set_meta_tags noindex: true
   end
 
   def create

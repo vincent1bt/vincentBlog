@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  #resources :categories
-  resources :posts
-  root "posts#index"
+  get 'author/index'
 
-  localized do
-    resources :categories
+  #resources :categories  
+  scope "/posts" do
+    localized do
+      resources :categories
+    end
   end
+
+  resources :posts
+  get "sobre" => "static_pages#index"
+
+  root "posts#index"
 
   namespace :admin, constraints: {subdomain: "dashadmin"}, path: "/" do
     resources :dashboard, only: [:index]

@@ -5,6 +5,9 @@ class Post < ActiveRecord::Base
   validates :body, presence: true
   belongs_to :user
 
+  validates :description, presence: true
+  validates :description, length: { minimum: 100 }
+
   has_many :has_categories, dependent: :destroy
   has_many :categories, through: :has_categories
 

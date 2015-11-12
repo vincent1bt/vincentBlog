@@ -1,9 +1,12 @@
 class CategoriesController < ApplicationController
+  include Description
   before_action :find_category, only: [:show, :edit, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   def new
   	@category = Category.new
+    #gem meta_tags SEO
+    set_meta_tags noindex: true
   end
 
   def create
@@ -19,6 +22,8 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    text = "Tenemos categorías sobre: "
+    set_meta_tags description: all_categories(text)
     respond_to do |format|
         format.html 
         format.json { render json: @categories }
@@ -26,6 +31,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    #get meta tags SEO
+    set_meta_tags canonical: "http://vincentblog.me/posts"
   end
 
   def destroy

@@ -18,6 +18,9 @@ gem "sanitize"
 gem 'friendly_id', '~> 5.1.0'
 gem 'font-awesome-sass'
 gem 'route_translator'
+gem 'meta-tags'
+gem "dynamic_sitemaps"
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'byebug'

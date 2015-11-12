@@ -3,8 +3,13 @@
     <%= title %>
   </p>  
   <%= form_for(@post, html: { id: "posts_form", class: "new-container-form"}) do |f| %>
+
     <div class="new-container-form-title">
       <%= f.text_field :title, placeholder: "Titulo" %>
+    </div>
+
+    <div class="new-container-form-title" data-after="0" id="data">
+      <%= f.text_area :description, id: "desc", placeholder: "Descripcion" %>
     </div>
 
     <div class="new-container-form-body">

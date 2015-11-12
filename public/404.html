@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>La página que estas buscando no existe (404)</title>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   body {
@@ -51,6 +53,9 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+  a {
+    color: gray;
+  }
   </style>
 </head>
 
@@ -58,10 +63,15 @@
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+      <h1> <i class="fa fa-exclamation-triangle"></i>  La página que estas buscando no existe  </h1>
+      <p>
+        Puedes ver <a href="http://vincentblog.me">todos los posts</a>
+      </p>
+      <p>
+        o buscar las <a href="http://vincentblog.me">categorías</a>
+      </p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+   
   </div>
 </body>
 </html>

@@ -15,5 +15,6 @@ Rails.application.config.assets.precompile += %w( dashboard/dashboard.css )
 
 Rails.application.config.assets.precompile += %w( react.js )
 Rails.application.config.assets.precompile += %w( post.js )
+Rails.application.config.assets.precompile += %w( jq.js )
 Rails.application.config.assets.precompile += %w( hl.js )
 Rails.application.config.assets.precompile += %w( postsNew.js )

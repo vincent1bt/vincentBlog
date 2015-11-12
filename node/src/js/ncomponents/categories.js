@@ -1,7 +1,7 @@
 import React from 'react';
 import request from 'superagent';
 require('superagent-rails-csrf')(request);
-import FormCategories from 'ncomponents/formCategories';
+import FormCategories from 'js/ncomponents/formCategories';
 
 export default class CategoryComponent extends React.Component {
 	constructor(props) {
@@ -16,7 +16,7 @@ export default class CategoryComponent extends React.Component {
 	}
 
 	getCategories() {
-		Promise.resolve(request.get("/categories.json"))
+		Promise.resolve(request.get("/posts/categorias.json"))
 		  .then((data) => {
 		  	this.setState({categories: this.state.categories.concat(data.body)});
 		});
@@ -24,7 +24,7 @@ export default class CategoryComponent extends React.Component {
 
 	addCategory(cat) {
 		Promise.resolve(request
-							.post('/categories')
+							.post('/posts/categorias')
 							.setCsrfToken()
 							.send({category: cat}))
 							.then((data) => {
@@ -46,7 +46,7 @@ export default class CategoryComponent extends React.Component {
 									<a data-confirm="yes?" className="dashboard-container-list-item-link dashboard-container-list-item-link--delete" 
 										rel="nofollow"
 										data-method="delete"
-										href={`/categories/${category.id}`}
+										href={`/posts/categorias/${category.id}`}
 									>
 										Eliminar
 									</a>

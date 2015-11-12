@@ -8,13 +8,22 @@
     margin-top: 110px
     padding: 15px
     width: 65%
+
   &-title
     color: rgba(44, 62, 80,1.0)
     text-align: center
     font-size: 2em
+
   &-form
+    width: 100%
+
+    #data:after
+      content: attr(data-after)
+      color: rgba(52, 152, 219,1.0)
+
     &-title
       text-align: center
+
       input[type="text"]
         height: 25px
         padding: 10px
@@ -24,26 +33,53 @@
         border-bottom: 2px solid rgba(52, 152, 219,1.0)
         margin-bottom: 30px
         font-size: 1.3em
+
         &:focus
           outline: none
+
+      textarea
+        height: 125px
+        padding: 5px
+        width: 95%
+        border: 0
+        border-radius: 5px
+        border-bottom: 2px solid rgba(52, 152, 219,1.0)
+        margin-bottom: 30px
+        font-size: 1.3em
+
+        &:focus
+          outline: none
+
     &-body
       height: 600px
+      width: 100%
+
       &-epiceditor
         height: 600px
+        width: 100%
+
+        iframe
+          width: 100% !important
+          max-width: 100% !important
+
     &-categorias
       margin-top: 30px
+
       &-parr
         text-align: center
         font-size: 1.5em
+
       &-list
         padding-left: 0
         display: flex
         flex-wrap: wrap
         justify-content: space-around
+
         &-item
           list-style-type: none
           font-size: 1.2em
           width: 33%
+
     &-but
       height: 50px
       text-align: center
