@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'author/index'
-
-  #resources :categories  
+ 
   scope "/posts" do
     localized do
       resources :categories
@@ -13,7 +12,7 @@ Rails.application.routes.draw do
 
   root "posts#index"
 
-  namespace :admin, constraints: {subdomain: "dashadmin"}, path: "/" do
+  namespace :admin do
     resources :dashboard, only: [:index]
     get "login" => 'sessions#new'
     post "login" => "sessions#create"
