@@ -1,34 +1,64 @@
 $barkBlue: rgba(44, 62, 80,1.0)
 $gray: rgba(127, 140, 141,1.0)
 
-
 .footer
-  //border: solid 1px
-  margin-top: 15px
-  margin-bottom: 15px
-  height: 35px
+  border-top: solid 0.8px
+  position: fixed
+  height: 47px
+  padding-top: 5px
+  bottom: 0
+  width: 100%
+  z-index: 1000
+  background: rgba(236, 240, 241,0.98)
+
+  @media (min-width: 1200px)
+    display: none
+
+  @media (max-width: 700px) and (orientation: landscape)
+    position: relative
   
   &-container
     //border: solid 1px red
-    width: 75%
+    width: 100%
     height: 100%
     //border-top: solid 1px $gray
-    margin: 10px auto
 
     &-list
       display: flex
       justify-content: space-around
-      margin-top: 10px
       height: 100%
 
       &-item
         list-style-type: none
         height: 100%
-        width: 100px
+        width: 25%
+        //border: solid 1px
+        text-align: center
+
         &-link
-          width: 100px
+          width: 100%
+          height: 100%
           text-decoration: none
           color: $barkBlue
+          //border: solid 1px
+          
+          i
+            //border: solid 1px
+            height: 50%
+            width: 100%
+            color: rgba(41, 128, 185,1.0)
+
+            &::before
+              height: 100%
+
+          p
+            width: 100%
+            height: 50%
+            margin: 0
+            font-size: 12px
+            color: rgba(44, 62, 80,1.0)
+            font-weight: bold
+
 
 
           

@@ -16,6 +16,14 @@
     	<li class="nav-container-list-item">
     	  <%= link_to "Sobre", sobre_path, class: "nav-container-list-item-link" %>
     	</li>
+      <li class="nav-container-list-item">
+        <a href="https://twitter.com/vincent1bt" target="blank" class="nav-container-list-item-link">    Twitter
+        </a>
+      </li>
+      <li class="nav-container-list-item">
+        <a href="https://github.com/vincent1bt" target="blank" class="nav-container-list-item-link">    Github
+        </a>
+      </li>
     	  <% if logged_in? %>
           <li class="nav-container-list-item">
             <%= link_to @current_user.username, admin_dashboard_index_url, data: { no_turbolink: true }, class: "nav-container-list-item-link"%>

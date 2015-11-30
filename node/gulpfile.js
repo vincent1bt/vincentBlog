@@ -7,6 +7,16 @@ var source = require("vinyl-source-stream");
 var uglify = require("gulp-uglify");
 var buffer = require("vinyl-buffer");
 
+gulp.task("sitewide:css:dev", function() {
+	gulp.src("./src/styles/sitewide/main.sass")
+	  .pipe(sass().on("error", sass.logError))
+	  .pipe(autoprefixer({
+	  	browsers: ["last 2 versions"],
+	  	cascade: false
+	  }))
+	  .pipe(gulp.dest("../app/assets/stylesstyles"))
+});
+
 // ------------------------------------ SITEWIDE TASKS STYLES
 // ------------------------------------
 // ------------------------------------

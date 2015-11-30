@@ -2,14 +2,28 @@
   <section class="footer-container">
     <ul class="footer-container-list">
       <li class="footer-container-list-item">
-        <a href="https://github.com/vincent1bt" target="blank" class="footer-container-list-item-link">
-          <i class="fa fa-github-square fa-lg"> Github</i>
-        </a>
+        <%= link_to( posts_path, class: "footer-container-list-item-link") do %>
+          <i class="fa fa-database fa-2x"></i>
+          <p>Posts</p>
+        <% end %>
       </li>
       <li class="footer-container-list-item">
-        <a href="https://twitter.com/vincent1bt" target="blank" class="footer-container-list-item-link">
-          <i class="fa fa-twitter-square fa-lg"> Twitter</i>
-        </a>
+        <%= link_to( categories_path, class: "footer-container-list-item-link") do %>
+          <i class="fa fa-book fa-2x"></i>
+          <p>Categorias</p>
+        <% end %>
+      </li>
+      <li class="footer-container-list-item">
+        <%= link_to( sobre_path, class: "footer-container-list-item-link") do %>
+          <i class="fa fa-user fa-2x"></i>
+          <p>Sobre</p>
+        <% end %>
+      </li>
+      <li class="footer-container-list-item">
+        <%= link_to( posts_path, class: "footer-container-list-item-link") do %>
+          <i class="fa fa-search fa-2x"></i>
+          <p>Buscar</p>
+        <% end %>
       </li>
     </ul>
   </section>
