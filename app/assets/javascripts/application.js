@@ -2,4 +2,3 @@
 // about supported directives.
 //= require turbolinks
 //= require_self
-//= require_tree ./dev
