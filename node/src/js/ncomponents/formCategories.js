@@ -15,9 +15,9 @@ export default class CategoryForm extends React.Component {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form onSubmit={this.handleSubmit} className="submit_form">
 				<input type="text" placeholder="Nueva categoria" ref="category"/>
-				<input type="submit"/>
+				<input type="submit" className="submit_button" />
 			</form>
 		)
 	}

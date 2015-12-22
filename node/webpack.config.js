@@ -1,47 +1,35 @@
 var webpack = require("webpack"),
 	path    = require("path"),
-	srcPath = path.join(__dirname, "src"),
-	ExtractTextPlugin = require("extract-text-webpack-plugin");
+	srcPath = path.join(__dirname, "src");
 
 module.exports = {
-	target: "web",
-	cache: true,
 	entry: {
 		react: path.join(srcPath, "module.js"),
+		sitewide: path.join(srcPath, "js/siteWide/sitewide.js"),
+		post: path.join(srcPath, "js/posts/post.js")
 	},
 
 	output: {
-		path: "./../app/assets/javascripts",
+		path: "./../app/assets/javascripts/dev",
 		filename: '[name].js',
-		//library: ['Example', '[name]'],
-		pathInfo: false
 	},
 	resolve: {
 		root: srcPath,
-		extensions: ['', ".js"],
-		modulesDirectores: ["node_modules", "src"]
+		extensions: ["", ".js"],
+		modulesDirectores: ["node_modules"]
 	},
 	module: {
 		loaders: [
 			{
-				test: /\.js?$/, exclude: /node_modules/,
+				test: /\.js?$/,
+				exclude: /node_modules/,
 				loader: 'babel-loader',
-				query: {stage:0}
+				query: {
+					presets: ['es2015', 'react']
+				}
 			}
-			// {
-   //              test: /\.css$/,
-   //              loader: ExtractTextPlugin.extract("style-loader", "css-loader")
-   //          },
-			// {
-   //      		test: /\.sass$/,
-   //      		loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
-   //    		}
 		]
 	},
-	pugins: [
-		new webpack.optimize.CommonsChunkPlugin("common.js"),
-		//new ExtractTextPlugin("[name].css")
-	],
-	debug: true
-	//devtool: 'eval-cheap-module-source-map'
+	debug: true,
+	devtool: 'eval-cheap-module-source-map'
 };

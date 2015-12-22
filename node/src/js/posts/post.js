@@ -1,4 +1,6 @@
 (function() {
+
+  document.addEventListener("page:load", onDomLoad);
   document.addEventListener("DOMContentLoaded", onDomLoad);
   function onDomLoad() {
     

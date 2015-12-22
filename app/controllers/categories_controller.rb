@@ -12,8 +12,9 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-    	flash[:notice] = "categoria creada"
-    	redirect_to categories_path
+      respond_to do |format| 
+          format.json { render json: @category }
+      end
     else
     	flash[:alert] = "error creando categoria"
     	render :new
@@ -37,7 +38,8 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
-    redirect_to admin_dashboard_index_path
+    #redirect_to admin_dashboard_index_path
+    render json: { message: "Categoria eliminada" }, status: :ok
   end
 
   private

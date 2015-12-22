@@ -1,7 +1,9 @@
 <% content_for(:title, "#{@post.title}")%>
-<%= render "/layouts_post/post_scripts"%>
-<%= render "/layouts_post/post_styles"%>
-
+<% if lookup_context.template_exists?("post_style", "assets", true) %>
+  <% content_for :head  do %>
+    <%= render "/assets/post_style" %>
+  <% end %>
+<% end %>
 <div class="post-container">
   <div class="posts-container-header">
     <p class="post-container-header-time"><%= @post.created_at.strftime("%d %b. %Y") %></p>
@@ -22,13 +24,6 @@
           <%= link_to category.name, category, class: "post-container-categories-list-item-link"%>
         </li>
       <% end %>
-      <br/>
-      <li class="post-container-categories-list-item">
-        <%= link_to "Todas las categorias", categories_path, class: "post-container-categories-list-item-link" %>
-      </li>
-      <li class="post-container-categories-list-item">
-        <%= link_to "Todos los posts", posts_path, class: "post-container-categories-list-item-link" %>
-      </li>
     </ul>
   </div>
 
@@ -39,7 +34,9 @@
     </div>
   </div>
 </div>
-<%= javascript_include_tag 'hl', 'data-turbolinks-track' => false  %>
+<% if lookup_context.template_exists?("post_script", "assets", true) %>
+  <%= render "/assets/post_script" %>
+<% end %>
 
-
+<%= javascript_include_tag 'hl', 'data-turbolinks-track' => true  %>
 

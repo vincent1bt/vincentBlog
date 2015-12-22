@@ -1,3 +1,9 @@
+<% if lookup_context.template_exists?("dashboard_style", "assets", true) %>
+  <% content_for :head  do %>
+    <%= render "/assets/dashboard_style" %>
+  <% end %>
+<% end %>
+
 <div class="dashboard-container">
 	<div class="dashboard-container-form" id="containerM">
 		
@@ -14,7 +20,8 @@
 		    	<p class="dashboard-container-list-item-parr">
 		    	  <%= post.title %>
 		    	</p>
-		    	<%= link_to "Eliminar", post, method: :delete, data: { confirm: "yes?" }, class: "dashboard-container-list-item-link dashboard-container-list-item-link--delete" %>
+		    	<%= button_to "Eliminar", post, method: :delete, data: { confirm: "yes?" }, class: "dashboard-container-list-item-link dashboard-container-list-item-link--delete" %>
+		    	
 		    	<%= link_to "Editar", edit_post_path(post.id), class: "dashboard-container-list-item-link"%> <br>
 		    </li>
 		  <% end %>
@@ -22,7 +29,6 @@
 	</div>
 </div>
 
-<%= stylesheet_link_tag  'dashboard/dashboard', media: 'all' %>
-<%= javascript_include_tag 'jq' %>
-<%= javascript_include_tag 'react' %>
-
+<% if lookup_context.template_exists?("dashboard_script", "assets", true) %>
+  <%= render "/assets/dashboard_script" %>
+<% end %>

@@ -1,13 +1,21 @@
 $black: #212121
 $barkBlue: rgba(44, 62, 80,1.0)
-$gray: rgba(127, 140, 141,1.0)
+
+$white: #ECF0F1
+$naranja3: #D35400
+$naranja2: #E67E22
+$naranja1: #F39C12
+$black: #313338
+$green: #598F27
+$gray: #585A63//4F5159
 
 .posts-container
-  background: #F2F2F2
+  //background: $white//#F2F2F2
   border-radius: 5px
-  border: 1px solid rgba(189, 195, 199,1.0)
+  //border: 1px solid rgba(189, 195, 199,1.0)
   margin-top: 94px
   width: 98%
+
   @media (min-width: 700px)
     margin-top: 110px
     width: 75%
@@ -15,7 +23,7 @@ $gray: rgba(127, 140, 141,1.0)
     width: 55%
   &-title
     //border: solid 1px
-    color: $barkBlue
+    color: $black
 
     &-h3
       text-align: center
@@ -27,6 +35,19 @@ $gray: rgba(127, 140, 141,1.0)
 
     &-list
       list-style-type: none
+      
+      &-item:nth-child(2n) p:hover
+        color: $naranja1
+      
+      &-item:nth-child(odd) p:hover
+        color: $naranja2
+
+      &-item:nth-child(2n) p
+        border-left: 6px solid $naranja2
+      
+      &-item:nth-child(odd) p
+        border-left: 6px solid $naranja1
+
 
       &-item
         &:last-of-type
@@ -34,19 +55,18 @@ $gray: rgba(127, 140, 141,1.0)
 
         padding: 0 0
         margin-bottom: 10px
-        border-bottom: 1px solid $gray
+        border-bottom: 1px solid $black
 
         &-link
           text-decoration: none
-        
+
         &-parr
-          color: rgba(127, 140, 141,1.0)
+          color: $gray
           font-weight: 700
           font-size: 1.3em
           margin: 0
           padding: 10px
           margin: 0
-          border-left: 6px solid rgba(52, 152, 219,1.0)
           transition: background 0.3s ease-in
 
           &:hover
@@ -54,10 +74,11 @@ $gray: rgba(127, 140, 141,1.0)
             color: rgba(52, 152, 219,1.0)
 
           &:active
-            background: rgba(52, 152, 219,1.0)
+            background: $naranja3
             color: white
 
         &-time
-          color: $barkBlue
+          color: $green !important
           padding: 10px
+          border-left: 0px !important
           margin: 0 0 0 16px

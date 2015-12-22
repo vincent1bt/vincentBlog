@@ -2,27 +2,29 @@
 <html>
 <head>
   <title> <%= title(yield :title)%> </title>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true, :async => true%>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true%>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta charset="UTF-8">
   <meta property="fb:app_id" content="470272653097747" />
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= display_meta_tags %>
-  <%= render "./layouts/styles" %>
   <%= render "./layouts/analytics" %>
   <%= csrf_meta_tags %>
+  <% if lookup_context.template_exists?("sitewide", "assets", true) %>
+    <%= render "./assets/sitewide" %>
+  <% end %>
+  <%= yield :head %>
 </head>
 <body>
-<div id="fb-root"></div>
+  <div id="fb-root"></div>
+  <%= render "./layouts/nav" %>
+  <%= render "./layouts/notice"%>
+  
+  <div class="container">
+    <%= yield %>
+  </div>
 
-<%= render "./layouts/nav" %>
-<%= render "./layouts/notice"%>
+  <%= render "./layouts/footer" %>
 
-<div class="container">
-  <%= yield %>
-</div>
-
-<%= render "./layouts/footer" %>
-<%= render "./layouts/scripts" %>
 </body>
 </html>

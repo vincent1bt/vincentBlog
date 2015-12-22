@@ -1,52 +1,69 @@
+$black: #313338
+$white: #ECF0F1
+$naranja3: #D35400
+$naranja2: #E67E22
+$naranja1: #F39C12
+
+
 .login-container
   background: #F2F2F2
   border-radius: 5px
-  border: 1px solid rgba(189, 195, 199,1.0)
+  border: 1px solid $naranja1//rgba(189, 195, 199,1.0)
   margin-top: 94px
   width: 98%
   text-align: center
+
   @media (min-width: 700px)
     margin-top: 110px
     width: 75%
+
   @media (min-width: 1200px)
     width: 55%
+
   &-email
     margin-top: 30px
     input[type="email"]
       border: 0
       border-radius: 5px
-      border-bottom: 2px solid rgba(41, 128, 185,1.0)
+      border-bottom: 2px solid $naranja3//rgba(41, 128, 185,1.0)
       font-size: 1em
       height: 35px
       width: 70%
+
       @media (min-width: 700px)
         width: 55%
+
       &:focus
         outline: none
+
   &-password
     margin-top: 30px
+
     input[type="password"]
       border: 0
       border-radius: 5px
-      border-bottom: 2px solid rgba(41, 128, 185,1.0)
+      border-bottom: 2px solid $naranja3//rgba(41, 128, 185,1.0)
       font-size: 1em
       height: 35px
       width: 70%
+
       @media (min-width: 700px)
         width: 55%
+
       &:focus
         outline: none
 
   &-button
     margin-top: 30px
     margin-bottom: 30px
+
     input[type="submit"]
-      background: rgba(52, 152, 219,1.0)
+      background: $naranja2//rgba(52, 152, 219,1.0)
       color: white
       border: 0
-      border-bottom: 5px solid rgba(41, 128, 185,1.0)
+      border-bottom: 5px solid $naranja3//rgba(41, 128, 185,1.0)
       border-radius: 5px
-      width: 30%
+      width: 35%
       height: 45px
       cursor: pointer
 

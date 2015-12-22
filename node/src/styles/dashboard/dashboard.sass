@@ -6,6 +6,15 @@ $azul-claro: rgba(52, 152, 219,1.0)
 $midnight-blue: rgba(44, 62, 80,1.0)
 $silver: rgba(189, 195, 199,1.0)
 
+$white: #ECF0F1
+$naranja3: #D35400
+$naranja2: #E67E22
+$naranja1: #F39C12
+$black: #313338
+$green: #598F27
+$gray: #585A63//4F5159
+
+
 .dashboard-container
   background: #F2F2F2
   border-radius: 5px
@@ -13,6 +22,9 @@ $silver: rgba(189, 195, 199,1.0)
   margin-top: 94px
   width: 98%
   max-width: 1200px
+
+  form
+    display: inline-block
 
   @media (min-width: 700px)
     margin-top: 110px
@@ -24,6 +36,8 @@ $silver: rgba(189, 195, 199,1.0)
 
 
   &-div
+    max-height: 500px
+    overflow-y: scroll
 
   &-links
     border-bottom: solid 1px rgba(52, 152, 219,1.0)
@@ -38,11 +52,13 @@ $silver: rgba(189, 195, 199,1.0)
   &-form
     width: 100%
     height: auto
+    max-height: 500px
+    overflow-y: scroll
     max-width: 600px
     //border: solid 1px
     text-align: center
 
-    form
+    form.submit_form
       width: 100%
       height: 60px
       margin-bottom: 5px
@@ -57,13 +73,20 @@ $silver: rgba(189, 195, 199,1.0)
           outline: none
 
       input[type="submit"]
-        height: 95%
+        height: 55px
         width: 25%
         border: 0
-        border-bottom: 5px solid rgba(41, 128, 185,1.0)
-        background: rgba(52, 152, 219,1.0)
+        border-bottom: 5px solid $naranja3//rgba(41, 128, 185,1.0)
+        background: $naranja2//rgba(52, 152, 219,1.0)
         border-radius: 5px
         color: white
+        transition-property: border, bottom
+        transition-duration: 0.2s
+
+      input[type="submit"]:hover
+        border-bottom: 0px solid $naranja3
+        height: 60px
+
 
     &-list
       display: flex
@@ -75,7 +98,7 @@ $silver: rgba(189, 195, 199,1.0)
         color: white
         width: 32%
         margin: 1px 1px 0 0
-        background: $midnight-blue
+        background: $black
 
         &-parr
     
@@ -97,6 +120,8 @@ $silver: rgba(189, 195, 199,1.0)
 
         &--delete
           color: $red-alert
+          border: 0
+          background: 0
 
   &-link
     color: $azul-claro

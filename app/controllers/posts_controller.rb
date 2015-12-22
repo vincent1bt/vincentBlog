@@ -42,7 +42,8 @@ class PostsController < ApplicationController
     	redirect_to admin_dashboard_index_path
     	flash[:notice] = "post creado"
     else
-    	flash[:alert] = "error al crear post"
+    	flash[:alert] = "error al crear post #{@post.errors.full_messages}"
+      @categories = Category.all
     	render :new
     end
   end

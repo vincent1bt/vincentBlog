@@ -2,22 +2,8 @@ var gulp = require("gulp");
 var sass = require("gulp-sass");
 var autoprefixer = require('gulp-autoprefixer');
 var smoosher = require("gulp-smoosher");
-var browserify = require("browserify");
-var source = require("vinyl-source-stream");
-var uglify = require("gulp-uglify");
-var buffer = require("vinyl-buffer");
 
-gulp.task("sitewide:css:dev", function() {
-	gulp.src("./src/styles/sitewide/main.sass")
-	  .pipe(sass().on("error", sass.logError))
-	  .pipe(autoprefixer({
-	  	browsers: ["last 2 versions"],
-	  	cascade: false
-	  }))
-	  .pipe(gulp.dest("../app/assets/stylesstyles"))
-});
-
-// ------------------------------------ SITEWIDE TASKS STYLES
+// ------------------------------------ SITEWIDE TASKS
 // ------------------------------------
 // ------------------------------------
 gulp.task("sitewide:css", function() {
@@ -30,35 +16,15 @@ gulp.task("sitewide:css", function() {
 	  .pipe(gulp.dest("./dist/styles"))
 });
 
-gulp.task("html:sidecss", function() {
-	gulp.src('./dist/html/_styles.html.erb')
+gulp.task("sitewide:html", function() {
+	gulp.src('./dist/html/_sitewide.html.erb')
 	  .pipe(smoosher())
-	  .pipe(gulp.dest('./../app/views/layouts'));
+	  .pipe(gulp.dest('./../app/views/assets'));
 });
 
-gulp.task("side-styles", ["sitewide:css", "html:sidecss"]);
+gulp.task("sidewide:pro", ["sitewide:css", "sitewide:html"]);
 
-// ------------------------------------ SITEWIDE TASKS JAVASCRIPTS
-// ------------------------------------
-// ------------------------------------
-gulp.task("sitewide:js", function() {
-	return browserify("./src/js/sitewide/sitewide.js")
-		.bundle()
-		.pipe(source("sitewide.js"))
-		.pipe(buffer())
-		.pipe(uglify())
-		.pipe(gulp.dest("./dist/scripts"));
-});
-
-gulp.task("html:sidejs", function() {
-	gulp.src('./dist/html/_scripts.html.erb')
-	  .pipe(smoosher())
-	  .pipe(gulp.dest('./../app/views/layouts'));
-});
-
-gulp.task("side-js", ["sitewide:js", "html:sidejs"]);
-
-// ------------------------------------ POST TASKS STYLES
+// ------------------------------------ POST TASKS
 // ------------------------------------
 // ------------------------------------
 gulp.task("post:css", function() {
@@ -71,57 +37,84 @@ gulp.task("post:css", function() {
 	  .pipe(gulp.dest("./dist/styles"))
 });
 
-gulp.task("html:postcss", function() {
-	gulp.src('./dist/html/_post_styles.html.erb')
-	  .pipe(smoosher())
-	  .pipe(gulp.dest('./../app/views/layouts_post'));
-});
-
-gulp.task("post-styles", ["post:css", "html:postcss"])
-
-// ------------------------------------ OTRAS TASKS
-// ------------------------------------
-// ------------------------------------
-
 gulp.task("post:js", function() {
-	return browserify("./src/js/posts/post.js")
-		.bundle()
-		.pipe(source("post.js"))
-		.pipe(buffer())
-		.pipe(uglify())
-		.pipe(gulp.dest("./dist/scripts"));
-});
-
-gulp.task("html:postjs", function() {
-	gulp.src('./dist/html/_post_scripts.html.erb')
+	gulp.src('./dist/html/_post_script.html.erb')
 	  .pipe(smoosher())
-	  .pipe(gulp.dest('./../app/views/layouts_post'));
+	  .pipe(gulp.dest('./../app/views/assets'));
 });
 
-gulp.task("posts-js", ["post:js", "html:postjs"]);
+gulp.task("post:html", function() {
+	gulp.src('./dist/html/_post_style.html.erb')
+	  .pipe(smoosher())
+	  .pipe(gulp.dest('./../app/views/assets'));
+});
 
-// ------------------------------------ OTRAS TASKS
-// ------------------------------------
-// ------------------------------------
+gulp.task("post:pro", ["post:css", "post:html", "post:js"])
 
-gulp.task("dashboard", function() {
+// // ------------------------------------ dashboard TASKS
+// // ------------------------------------
+// // ------------------------------------
+
+gulp.task("dashboard:css", function() {
 	gulp.src("./src/styles/dashboard/dashboard.sass")
 	  .pipe(sass({outputStyle: "compressed"}).on("error", sass.logError))
 	  .pipe(autoprefixer({
 	  	browsers: ["last 2 versions"],
 	  	cascade: false
 	  }))
-	  .pipe(gulp.dest("./../app/assets/stylesstyles/dashboard"));
+	  .pipe(gulp.dest("./dist/styles"));
 });
 
-gulp.task("post", function() {
+gulp.task("dashboard:js", function() {
+	gulp.src('./dist/html/_dashboard_script.html.erb')
+	  .pipe(smoosher())
+	  .pipe(gulp.dest('./../app/views/assets'));
+});
+
+gulp.task("dashboard:html", function() {
+	gulp.src('./dist/html/_dashboard_style.html.erb')
+	  .pipe(smoosher())
+	  .pipe(gulp.dest('./../app/views/assets'));
+});
+
+gulp.task("dashboard:pro", ["dashboard:css", "dashboard:js", "dashboard:html"]);
+
+gulp.task("production", ["dashboard:pro", "post:pro", "sidewide:pro"])
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////DEV
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+gulp.task("post:dev", function() {
 	gulp.src("./src/styles/post/post.sass")
-	  .pipe(sass({outputStyle: "compressed"}).on("error", sass.logError))
+	  .pipe(sass().on("error", sass.logError))
 	  .pipe(autoprefixer({
 	  	browsers: ["last 2 versions"],
 	  	cascade: false
 	  }))
-	  .pipe(gulp.dest("./../app/assets/stylesstyles/post"));
+	  .pipe(gulp.dest("./../app/assets/stylesstyles/dev"));
 });
 
-gulp.task("default", [ "dashboard", "post"]);
+gulp.task("sidewide:dev", function() {
+	gulp.src("./src/styles/sitewide/main.sass")
+	  .pipe(sass().on("error", sass.logError))
+	  .pipe(autoprefixer({
+	  	browsers: ["last 2 versions"],
+	  	cascade: false
+	  }))
+	  .pipe(gulp.dest("../app/assets/stylesstyles/dev"))
+});
+
+gulp.task("dashboard:dev", function() {
+	gulp.src("./src/styles/dashboard/dashboard.sass")
+	  .pipe(sass().on("error", sass.logError))
+	  .pipe(autoprefixer({
+	  	browsers: ["last 2 versions"],
+	  	cascade: false
+	  }))
+	  .pipe(gulp.dest("../app/assets/stylesstyles/dev"))
+});
+
+gulp.task("dev", ["dashboard:dev", "post:dev", "sidewide:dev"])

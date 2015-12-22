@@ -6,10 +6,19 @@
 @import "reset"
 @import 'normalize'
 
+$morado3: #2E112D
+$morado2: #540032
+$morado1: #820333
+$rojo: #C9283E
+$naranja: #F0433A
+$black: #313338
+$white: #ECF0F1
+//#ebebeb old
+
 body
   margin: 0
   font-family: helvetica
-  background: #ebebeb
+  background: $white
   //background: white
 
 .container
@@ -21,8 +30,10 @@ body
 
 .alerts-container
   height: 50px
-  margin-top: 25px
-  margin-bottom: 20px
+  top: 80px
+  position: absolute
+  width: 100%
+  z-index: 10000
   &-alert
     text-align:center
     color: white
