@@ -9,12 +9,8 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-Rails.application.config.assets.precompile += %w( dashboard/dashboard.css )
 # Rails.application.config.assets.precompile += %w( styles/dashboard/login.sass )
 # Rails.application.config.assets.precompile += %w( styles/dashboard/postNew.sass )
 
-Rails.application.config.assets.precompile += %w( react.js )
-Rails.application.config.assets.precompile += %w( post.js )
-Rails.application.config.assets.precompile += %w( jq.js )
 Rails.application.config.assets.precompile += %w( hl.js )
 Rails.application.config.assets.precompile += %w( postsNew.js )
