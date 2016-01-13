@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc)
     cat = Category.all
     #gem meta_tags SEO
     set_meta_tags canonical: "http://vincentblog.me/posts"
