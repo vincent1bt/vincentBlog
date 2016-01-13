@@ -21,6 +21,7 @@ gem 'route_translator'
 gem 'meta-tags'
 gem "dynamic_sitemaps"
 gem 'whenever', :require => false
+gem 'cloudinary'
 
 group :development, :test do
   gem 'byebug'

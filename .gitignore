@@ -15,3 +15,4 @@
 .DS_Store
 report.json
 report.html
+config/cloudinary.yml

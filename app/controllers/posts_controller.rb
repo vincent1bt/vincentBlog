@@ -8,8 +8,9 @@ class PostsController < ApplicationController
     cat = Category.all
     #gem meta_tags SEO
     set_meta_tags canonical: "http://vincentblog.me/posts"
-    text = "Tutoriales, trucos y más sobre programación en español. todo sobre: "
-    set_meta_tags description: all_categories(text)
+    @text = "Tutoriales, trucos y más sobre programación en español. todo sobre: "
+    @description = all_categories(@text)
+    set_meta_tags description: @description
   end
 
   def edit
@@ -50,7 +51,9 @@ class PostsController < ApplicationController
 
   def show
     #gem meta_tags SEO
-    set_meta_tags description: @post.description
+    @description = @post.description
+    set_meta_tags description: @description
+    @url = @post.picture
   end
 
   def destroy
@@ -60,7 +63,7 @@ class PostsController < ApplicationController
 
   private
     def posts_params
-    	params.require(:post).permit(:title, :body, :markup_body, :categories, :description)
+    	params.require(:post).permit(:title, :body, :markup_body, :categories, :description, :picture)
     end
 
     def find_post

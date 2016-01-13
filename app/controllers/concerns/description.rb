@@ -4,7 +4,7 @@ module Description
 	  text = "#{text}"
 	  categories = Category.all
 	  categories.each do |category|
-		text += "#{category.name}, "
+		  text += "#{category.name}, "
 	  end
 	  return text
 	end
