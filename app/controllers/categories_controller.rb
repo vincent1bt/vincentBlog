@@ -23,6 +23,8 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    # @category = Category.count('id', :distinct => true)
+    count_posts(@categories)
     text = "Tenemos categorías sobre: "
     set_meta_tags description: all_categories(text)
     respond_to do |format|

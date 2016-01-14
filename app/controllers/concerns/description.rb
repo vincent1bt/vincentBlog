@@ -8,4 +8,12 @@ module Description
 	  end
 	  return text
 	end
+
+  def count_posts(categories)
+    @ar = {}
+    categories.each do |category|
+      @ar[category.name] = category.posts.count
+    end
+    return @ar
+  end
 end

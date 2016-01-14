@@ -19,6 +19,7 @@ $gray: #585A63//4F5159
 
   @media (min-width: 700px)
     margin-top: 110px
+
   @media (min-width: 1200px)
     width: 55%
 
@@ -27,7 +28,7 @@ $gray: #585A63//4F5159
 
     &-h3
       text-align: center
-      margin: 15px 15px
+      margin: 20px 0px 40px 0px
       font-size: 2.5em
       color: $black
 
@@ -44,27 +45,31 @@ $gray: #585A63//4F5159
         width: 100%
         list-style-type: none
         text-align: center
-        border-bottom: solid 1px $gray
+        border-top: solid 1px $gray
+        padding: 10px 0 10px 0
+
         @media (min-width: 700px)
-          border-bottom: 0
+          border-top: 0
         // background: rgba(189, 195, 199,1.0)
 
         // &:nth-child(2n)
         //   background: rgba(52, 152, 219,1.0)
         @media (min-width: 700px)
-          width: 49%
+          width: 32%
+
         @media (min-width: 1200px)
           width: 32%
+
           &:hover
             color: $naranja3
-            background: $naranja1
+            //background: $naranja1
+          
 
         &-link
+          color: $gray
+          font-size: 1em
           text-decoration: none
 
-        &-parr
-          color: $gray
-          font-size: 1.2em
           @media (min-width: 1200px)
             &:hover
               color: $naranja3

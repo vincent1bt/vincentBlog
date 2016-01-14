@@ -8,9 +8,12 @@
     <ul class="categories-container-text-list">
       <% @categories.each do |category| %>
         <li class="categories-container-text-list-item">
-          <%= link_to category, class: "categories-container-text-list-item-link" do %>
-            <p class="categories-container-text-list-item-parr"><%= category.name.capitalize %></p>
-          <% end %>
+          <h2 class="categories-container-text-list-item-parr">
+            <%= link_to category, class: "categories-container-text-list-item-link" do %>
+              <%= category.name.capitalize %>
+            <% end %>
+          </h2>
+          <p><%= pluralize(@ar[category.name],"post", "posts") %></p>
         </li>
       <% end %>
     </ul>
