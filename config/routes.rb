@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'author/index'
+  get "/buscar" => "posts#search"
  
   scope "/posts" do
     localized do

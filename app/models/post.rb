@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
   extend FriendlyId
+  include PgSearch
+
   friendly_id :title, use: :slugged
   validates :title, presence: true
   validates :body, presence: true
@@ -13,9 +15,24 @@ class Post < ActiveRecord::Base
 
   after_create :save_categories
 
+  pg_search_scope :search_full_text,
+    against: {
+      title: 'A',
+      description: 'B'
+    }, using: {
+      tsearch: { prefix: true }
+    }
+
   def categories=(value)
     @categories = value
   end
+
+  # def self.search_by(params = {})
+  #   if params[:search].present?
+  #     posts = Post.search(params[:search])
+  #   end
+  #   posts
+  # end
 
   private
     def save_categories

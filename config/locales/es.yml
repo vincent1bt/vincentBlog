@@ -1,3 +1,9 @@
 es:
   routes:
     categories: "categorias"
+  views:
+    pagination:
+      first: "Primera"
+      last: "Ultima"
+      previous: "Anterior"
+      next: "Siguiente"

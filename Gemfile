@@ -22,6 +22,8 @@ gem 'meta-tags'
 gem "dynamic_sitemaps"
 gem 'whenever', :require => false
 gem 'cloudinary'
+gem 'pg_search'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'

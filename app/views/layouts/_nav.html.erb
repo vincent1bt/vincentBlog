@@ -27,11 +27,17 @@
         <a href="https://github.com/vincent1bt" target="blank" title="Link a mi cuenta en github"class="nav-container-list-item-link">    Github
         </a>
       </li>
-    	  <% if logged_in? %>
-          <li class="nav-container-list-item">
-            <%= link_to @current_user.username, admin_dashboard_index_url, data: { no_turbolink: true }, class: "nav-container-list-item-link"%>
-          </li>
-        <% end %>
+    	<% if logged_in? %>
+        <li class="nav-container-list-item">
+          <%= link_to @current_user.username, admin_dashboard_index_url, data: { no_turbolink: true }, class: "nav-container-list-item-link"%>
+        </li>
+      <% end %>
+      <li class="nav-container-list-item">
+        <form action="/buscar" method="get" class="nav-container-list-item-form">
+          <input type="search" placeholder="Javascript, ruby, db..." name="search" autocomplete="off"/>
+          <input type="submit" value="Buscar"/>
+        </form>
+      </li>
     </ul>
   </nav>
 </header>

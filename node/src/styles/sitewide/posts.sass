@@ -43,6 +43,44 @@ $gray: #585A63//4F5159
     &-strong
       text-align: center
       color: $gray
+  
+  &-form
+    margin-bottom: 35px
+
+    &-search
+      width: 100%
+      margin: 0 auto
+      @media (min-width: 700px)
+        width: 75%
+
+      input[type="search"]
+        border-radius: 5px
+        height: 25px
+        padding: 5px
+        border: 0
+        width: 90%
+        display: inline-block
+        color: $gray
+
+        &:focus
+          outline: none
+      
+      input[type="submit"]
+        border-top-right-radius: 5px
+        border-bottom-right-radius: 5px
+        border: 0
+        padding: 5px
+        height: 35px
+        background: #F39C12
+        color: white
+        width: 10%
+        min-width: 60px
+        margin-left: -40px
+        display: inline-block
+
+        &:focus
+          outline: none
+
 
   &-body
     //border: solid 1px
@@ -56,14 +94,15 @@ $gray: #585A63//4F5159
       &-item:nth-child(odd) a:hover
         color: $naranja2
 
-      &-item:nth-child(2n) a
+      &-item:nth-child(2n) h2
         border-left: 6px solid $naranja2
       
-      &-item:nth-child(odd) a
+      &-item:nth-child(odd) h2
         border-left: 6px solid $naranja1
 
 
       &-item
+
         &:last-of-type
           border-bottom: 0
 
@@ -72,7 +111,7 @@ $gray: #585A63//4F5159
         border-bottom: 1px solid $black
 
         &-parr
-          padding: 10px 10px 10px 0
+          padding: 10px
           transition: background 0.3s ease-in
 
         &-link
@@ -80,7 +119,7 @@ $gray: #585A63//4F5159
           font-weight: 700
           font-size: 0.9em
           margin: 0
-          padding: 10px
+          padding: 0
           margin: 0
           transition: background 0.3s ease-in
           text-decoration: none
@@ -92,9 +131,35 @@ $gray: #585A63//4F5159
           &:active
             background: $naranja3
             color: white
+        
+        &--center
+          text-align: center
+        
+        &-strong
+          color: $gray
 
         &-time
           color: $green !important
           padding: 10px
           border-left: 0px !important
           margin: 0 0 0 16px
+
+  .pagination
+    height: 30px
+    //border: solid 1px
+
+    span
+      height: 30px
+      padding: 5px 5px
+      margin: 5px 0px 5px 2px
+      background: #313338
+      color: black
+      border: solid 1px #313338
+
+
+      a
+        color: white
+        text-decoration: none
+
+    .current
+      background: white

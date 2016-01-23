@@ -6,6 +6,7 @@ $white: #ECF0F1
 $naranja3: #D35400
 $naranja2: #E67E22
 $naranja1: #F39C12
+$gray: #585A63
 
 
 .nav
@@ -91,7 +92,11 @@ $naranja1: #F39C12
         height: auto
 
       &-item:last-child
-        border-bottom: 1px solid
+        display: none
+      
+      @media (min-width: 1200px)
+        &-item:last-child
+          display: inline-block
 
       &-item:nth-child(-n+3)
         display: none
@@ -108,6 +113,32 @@ $naranja1: #F39C12
 
           &:nth-child(-n+3)
             display: inline-block
+          
+          &-form
+            margin-top: -4px
+            input[type="search"]
+              border-radius: 5px
+              height: 20px
+              padding: 5px
+              border: 0
+              color: $gray
+
+              &:focus
+                outline: none
+            
+            input[type="submit"]
+              border-top-right-radius: 5px
+              border-bottom-right-radius: 5px
+              border: 0
+              padding: 5px
+              height: 30px
+              background: #F39C12
+              color: white
+              margin-left: -15px
+              
+              &:focus
+                outline: none
+
             
         
         // @media (min-width: 700px)
