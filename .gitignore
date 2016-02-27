@@ -13,6 +13,7 @@
 /tmp
 /node/node_modules
 .DS_Store
+*.DS_Store
 report.json
 report.html
 config/cloudinary.yml
