@@ -5,7 +5,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.order(created_at: :desc).page(params[:page]).per(5)
-    cat = Category.all
     url = "http://vincentblog.me/posts"
     page = params[:page]
     #gem meta_tags SEO
@@ -26,7 +25,7 @@ class PostsController < ApplicationController
     if @post.update(posts_params)
       redirect_to @post
     else
-      flash[:alert] = "error al editar"
+      flash[:alert] = "Error al editar #{@post.errors.full_messages}"
       render :edit
     end
   end
@@ -44,9 +43,9 @@ class PostsController < ApplicationController
 
     if @post.save
     	redirect_to admin_dashboard_index_path
-    	flash[:notice] = "post creado"
+    	flash[:notice] = "Post creado"
     else
-    	flash[:alert] = "error al crear post #{@post.errors.full_messages}"
+    	flash[:alert] = "Error al crear post #{@post.errors.full_messages}"
       @categories = Category.all
     	render :new
     end
@@ -62,6 +61,7 @@ class PostsController < ApplicationController
   def search
     set_meta_tags canonical: "http://vincentblog.me/posts"
     set_meta_tags noindex: true
+
     if params[:search]
       @posts = Post.search_full_text(params[:search]).order(created_at: :desc).page(params[:page]).per(5)
     else

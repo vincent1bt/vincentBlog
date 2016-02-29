@@ -1,19 +1,18 @@
 <% if flash[:notice] or flash[:alert]%>
-<section class="alerts-container">
-     <% if flash[:notice] %>
-       <div class="alerts-container-notice">
-         <p class="alerts-container-notice-parr">
-           <%= flash[:notice]%>
-         </p>
-       </div>
-     <% end %>
-     <% if flash[:alert] %>
-       <div class="alerts-container-alert">
-         <p class="alerts-container-alert-parr">
-           <%= flash[:alert]%>
-         </p>
-       </div>
-    <% end %>
-</section>
-
+  <section class="alerts-container">
+       <% if flash[:notice] %>
+         <div class="alerts-container-notice">
+           <p class="alerts-container-notice-parr">
+             <%= flash[:notice]%>
+           </p>
+         </div>
+       <% end %>
+       <% if flash[:alert] %>
+         <div class="alerts-container-alert">
+           <p class="alerts-container-alert-parr">
+             <%= flash[:alert]%>
+           </p>
+         </div>
+      <% end %>
+  </section>
 <% end %>

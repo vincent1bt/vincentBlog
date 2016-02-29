@@ -1,44 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> <%= title(yield :title) %> </title>
+  <title><%= title(yield :title) %></title>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <link rel="icon" href="http://res.cloudinary.com/vincent1bt/image/upload/v1452713905/favicon128_pmh8op.png">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta charset="UTF-8">
-  <meta property="fb:app_id" content="470272653097747" />
-  <meta property="og:site_name" content="Vicente Rodríguez blog"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="<%= title(yield :title) %>"/>
-  <meta property="og:description" content="<%= description(@description) %>"/>
-  <meta property="og:image" content="<%= url(@url)%>"/>
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@vincent1bt">
-  <meta name="twitter:title" content="<%= title(yield :title) %>" />
-  <meta name="twitter:description" content="<%= description(@description) %>" />
-  <meta name="twitter:image" content="<%= url(@url) %>" />
-
-  <%= stylesheet_link_tag "application", media: "all" %>
-  <%= display_meta_tags %>
+  <%= render "./layouts/og_card" %>
+  <%= inline_css("main.css").html_safe %>
+  <%= inline_js("sitewide.js").html_safe %>
   <%= render "./layouts/analytics" %>
+  <%= display_meta_tags %>
   <%= csrf_meta_tags %>
-  <% if lookup_context.template_exists?("sitewide", "assets", true) %>
-    <%= render "./assets/sitewide" %>
-  <% end %>
   <%= yield :head %>
 </head>
 <body>
+  <div class="extendMenu"></div>
   <div id="fb-root"></div>
   <%= render "./layouts/nav" %>
   <%= render "./layouts/notice"%>
-  
   <div class="container">
     <%= yield %>
   </div>
-
   <%= render "./layouts/footer" %>
-
 </body>
 </html>

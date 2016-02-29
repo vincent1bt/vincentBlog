@@ -1,7 +1,6 @@
 var webpack = require("webpack"),
   path    = require("path"),
-  srcPath = path.join(__dirname, "src"),
-  file_output = path.join(__dirname, "dist/scripts")
+  srcPath = path.join(__dirname, "src");
 
 module.exports = {
   entry: {
@@ -11,7 +10,7 @@ module.exports = {
   },
 
   output: {
-    path: file_output,
+    path: "./../app/assets/javascripts",
     filename: '[name].js'
   },
   resolve: {

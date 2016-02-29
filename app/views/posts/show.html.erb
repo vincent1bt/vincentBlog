@@ -1,9 +1,10 @@
 <% content_for(:title, "#{@post.title}")%>
-<% if lookup_context.template_exists?("post_style", "assets", true) %>
-  <% content_for :head  do %>
-    <%= render "/assets/post_style" %>
-  <% end %>
+<% content_for :head  do %>
+    <%= inline_css("post.css").html_safe %>
+    <%= javascript_include_tag 'hl.js' %>
+    <%= inline_js("post.js").html_safe %>
 <% end %>
+
 <div class="post-container">
   <div class="post-container-header" style="background: url(<%= url(@url) %>);">
     <div class="back-filter">
@@ -19,7 +20,7 @@
   <div class="post-container-categories">
     <ul class="post-container-categories-list">
       <li class="post-container-categories-list-item">
-        Categorias: 
+        Categorias:
       </li>
       <% @post.categories.each do |category| %>
         <li class="post-container-categories-list-item">
@@ -36,9 +37,3 @@
     </div>
   </div>
 </div>
-<% if lookup_context.template_exists?("post_script", "assets", true) %>
-  <%= render "/assets/post_script" %>
-<% end %>
-
-<%= javascript_include_tag 'hl', 'data-turbolinks-track' => true  %>
-

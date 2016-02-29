@@ -1,7 +1,5 @@
-<% if lookup_context.template_exists?("dashboard_style", "assets", true) %>
-  <% content_for :head  do %>
-    <%= render "/assets/dashboard_style" %>
-  <% end %>
+<% content_for :head  do %>
+    <%= inline_css("dashboard.css").html_safe %>
 <% end %>
 
 <div class="login-container">
@@ -9,13 +7,12 @@
 	  <div class="login-container-email">
 	  	<%= f.email_field :email, placeholder: "Email" %>
 	  </div>
-	  
+
 	  <div class="login-container-password">
 	  	<%= f.password_field :password, placeholder: "Password" %>
 	  </div>
 	  <div class="login-container-button">
-		<%= f.submit "Iniciar sesion" %>	  	
+		<%= f.submit "Iniciar sesion" %>
 	  </div>
 	<% end %>
 </div>
-

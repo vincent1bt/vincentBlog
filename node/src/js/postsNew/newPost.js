@@ -1,4 +1,4 @@
-//= require epiceditor
+var editor = require("./editor.js");
 
 (function(){
 	var editor = new EpicEditor({

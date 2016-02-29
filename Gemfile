@@ -39,4 +39,3 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
 end
-

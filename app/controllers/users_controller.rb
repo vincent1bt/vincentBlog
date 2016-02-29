@@ -18,9 +18,9 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
   		redirect_to root_path
-  		flash[:notice] = "usuario creado"
+  		flash[:notice] = "Usuario creado"
   	else
-  		flash[:alert] = 'error al crear usuario'
+  		flash[:alert] = 'Error al crear usuario'
   		render :new
   	end
   end

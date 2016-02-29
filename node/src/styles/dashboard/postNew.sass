@@ -1,13 +1,25 @@
+$naranja3: #D35400
+$naranja2: #E67E22
+$naranja1: #F39C12
+$darkBlue: #093255
+$white: #ECF0F1
+
 .new-container
-  background: #F2F2F2
+  background: $white
   border-radius: 5px
   border: 1px solid rgba(189, 195, 199,1.0)
   margin-top: 94px
   width: 98%
+
   @media (min-width: 700px)
     margin-top: 110px
     padding: 15px
-    width: 65%
+    width: 75%
+
+  @media (min-width: 1200px)
+    border: 0
+    padding: 20px
+    box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.75)
 
   &-title
     color: rgba(44, 62, 80,1.0)
@@ -27,12 +39,15 @@
       input[type="text"]
         height: 25px
         padding: 10px
-        width: 50%
+        width: 90%
         border: 0
         border-radius: 5px
-        border-bottom: 2px solid rgba(52, 152, 219,1.0)
+        border-bottom: 2px solid $darkBlue
         margin-bottom: 30px
         font-size: 1.3em
+
+        @media (min-width: 1200px)
+          width: 65%
 
         &:focus
           outline: none
@@ -43,7 +58,7 @@
         width: 95%
         border: 0
         border-radius: 5px
-        border-bottom: 2px solid rgba(52, 152, 219,1.0)
+        border-bottom: 2px solid $darkBlue
         margin-bottom: 30px
         font-size: 1.3em
 
@@ -63,7 +78,9 @@
           max-width: 100% !important
 
     &-categorias
-      margin-top: 30px
+      margin: 30px auto
+      width: 95%
+
 
       &-parr
         text-align: center
@@ -78,12 +95,17 @@
         &-item
           list-style-type: none
           font-size: 1.2em
-          width: 33%
+          width: 49%
+          text-align: left
+
+          @media (min-width: 700px)
+            width: 33%
 
     &-but
-      height: 50px
+      height: 80px
       text-align: center
       margin-top: 30px
+
       input[type="submit"]
         font-size: 1.4em
         height: 55px
@@ -91,9 +113,6 @@
         color: white
         border-radius: 5px
         border: 0px
-        border-bottom: solid 6px rgba(41, 128, 185,1.0)
+        border-bottom: solid 6px $naranja3
         cursor: pointer
-        background: rgba(52, 152, 219,1.0)
-
-
-
+        background: $naranja2

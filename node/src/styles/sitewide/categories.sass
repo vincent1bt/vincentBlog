@@ -1,5 +1,5 @@
 $black: #212121
-$barkBlue: rgba(44, 62, 80,1.0)
+$darkBlue: #093255
 $gray: rgba(127, 140, 141,1.0)
 
 $white: #ECF0F1
@@ -11,17 +11,21 @@ $green: #598F27
 $gray: #585A63//4F5159
 
 .categories-container
-  background: #F2F2F2
+  background: $white
   border-radius: 5px
-  border: 1px solid $naranja1//rgba(189, 195, 199,1.0)
+  border: 2px solid $darkBlue
   margin-top: 94px
   width: 98%
+  max-width: 1300px
 
   @media (min-width: 700px)
     margin-top: 110px
 
   @media (min-width: 1200px)
-    width: 55%
+    width: 65%
+    border: 0px
+    padding: 30px 20px
+    box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.75)
 
   &-title
     //border: solid 1px
@@ -63,7 +67,7 @@ $gray: #585A63//4F5159
           &:hover
             color: $naranja3
             //background: $naranja1
-          
+
 
         &-link
           color: $gray

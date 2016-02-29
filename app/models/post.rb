@@ -27,13 +27,6 @@ class Post < ActiveRecord::Base
     @categories = value
   end
 
-  # def self.search_by(params = {})
-  #   if params[:search].present?
-  #     posts = Post.search(params[:search])
-  #   end
-  #   posts
-  # end
-
   private
     def save_categories
       if @categories

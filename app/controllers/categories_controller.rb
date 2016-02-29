@@ -12,23 +12,23 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      respond_to do |format| 
+      respond_to do |format|
           format.json { render json: @category }
       end
     else
-    	flash[:alert] = "error creando categoria"
+    	flash[:alert] = "Error creando categoria #{@category.errors.full_messages}"
     	render :new
     end
   end
 
   def index
     @categories = Category.all
-    # @category = Category.count('id', :distinct => true)
     count_posts(@categories)
     text = "Tenemos categorías sobre: "
     set_meta_tags description: all_categories(text)
+    
     respond_to do |format|
-        format.html 
+        format.html
         format.json { render json: @categories }
     end
   end
@@ -40,7 +40,6 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
-    #redirect_to admin_dashboard_index_path
     render json: { message: "Categoria eliminada" }, status: :ok
   end
 

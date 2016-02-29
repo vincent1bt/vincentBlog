@@ -1,12 +1,11 @@
-<% if lookup_context.template_exists?("dashboard_style", "assets", true) %>
-  <% content_for :head  do %>
-    <%= render "/assets/dashboard_style" %>
-  <% end %>
+<% content_for :head  do %>
+    <%= inline_css("dashboard.css").html_safe %>
+    <%= inline_js("react.js").html_safe %>
 <% end %>
 
 <div class="dashboard-container">
 	<div class="dashboard-container-form" id="containerM">
-		
+
 	</div>
 
 	<div class="dashboard-container-div">
@@ -21,14 +20,10 @@
 		    	  <%= post.title %>
 		    	</p>
 		    	<%= button_to "Eliminar", post, method: :delete, data: { confirm: "yes?" }, class: "dashboard-container-list-item-link dashboard-container-list-item-link--delete" %>
-		    	
+
 		    	<%= link_to "Editar", edit_post_path(post.id), class: "dashboard-container-list-item-link"%> <br>
 		    </li>
 		  <% end %>
 		</ul>
 	</div>
 </div>
-
-<% if lookup_context.template_exists?("dashboard_script", "assets", true) %>
-  <%= render "/assets/dashboard_script" %>
-<% end %>

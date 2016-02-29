@@ -11,5 +11,5 @@ module ApplicationHelper
   def url(url)
     default = "http://res.cloudinary.com/vincent1bt/image/upload/v1452704935/mac_lsiaue.jpg"
     url.nil? ? default : url
-  end 
+  end
 end

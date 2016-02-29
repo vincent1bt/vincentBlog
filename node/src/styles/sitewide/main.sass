@@ -13,6 +13,7 @@ $rojo: #C9283E
 $naranja: #F0433A
 $black: #313338
 $white: #ECF0F1
+$darkBlue: #093255
 //#ebebeb old
 
 body
@@ -20,6 +21,15 @@ body
   font-family: helvetica
   background: $white
   //background: white
+.extendMenu
+  background: #313338
+  position: fixed
+  width: 100%
+  height: 0px
+
+  @media (min-width: 1200px)
+    height: 250px
+
 
 .container
   height: auto
@@ -29,23 +39,34 @@ body
   margin-bottom: 60px
 
 .alerts-container
-  height: 50px
+  height: 100px
   top: 80px
-  position: absolute
+  position: relative
+  margin: 0 auto
   width: 100%
   z-index: 10000
+
+  @media (min-width: 1200px)
+    width: 55%
+    margin: 0 auto
+
   &-alert
     text-align:center
     color: white
     background: rgba(192, 57, 43,1.0)
+    height: 50px
+
     &-parr
       padding: 10px
       margin: 0
       font-size: 1.6em
+
   &-notice
     background: rgba(41, 128, 185,1.0)
     color: white
     text-align: center
+    height: 50px
+
     &-parr
       padding: 10px
       font-size: 1.6em

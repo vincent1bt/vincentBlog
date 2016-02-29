@@ -7,10 +7,11 @@ module.exports = {
 		react: path.join(srcPath, "module.js"),
 		sitewide: path.join(srcPath, "js/siteWide/sitewide.js"),
 		post: path.join(srcPath, "js/posts/post.js")
+		//newPost: path.join(srcPath, "js/postsNew/newPost.js")
 	},
 
 	output: {
-		path: "./../app/assets/javascripts/dev",
+		path: "./../app/assets/javascripts",
 		filename: '[name].js',
 	},
 	resolve: {

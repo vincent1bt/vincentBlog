@@ -1,6 +1,4 @@
 @import 'sublime'
-
-$barkBlue: rgba(44, 62, 80,1.0)
 $gray: rgba(127, 140, 141,1.0)
 $white: #ECF0F1
 $naranja3: #D35400
@@ -10,21 +8,25 @@ $black: #313338
 $green: rgb(46, 204, 113)
 $gray: #585A63//4F5159
 
+$darkBlue: #093255
 
 .post-container
   background: #F2F2F2
   border-radius: 5px
-  border: 1px solid $naranja1//rgba(189, 195, 199,1.0)
+  border: 2px solid $darkBlue
   margin-top: 94px
   width: 98%
   overflow: hidden
+  max-width: 1300px
 
   @media (min-width: 700px)
     margin-top: 110px
 
   @media (min-width: 1200px)
-    width: 55%
+    width: 65%
+    border: 0px
     padding: 0 20px 20px 20px
+    box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.75)
 
   &-header
     height: 450px
@@ -48,7 +50,7 @@ $gray: #585A63//4F5159
 
     &-time
       text-align: center
-      color: $green
+      color: $white
       font-weight: bold
       padding-top: 135px !important
       margin: 0
@@ -59,7 +61,7 @@ $gray: #585A63//4F5159
 
   &-body
     //border: solid 1px
-    margin-top: 30px 
+    margin-top: 30px
     padding: 0 10px
     font-size: 18px
     letter-spacing: 0.5px
@@ -76,7 +78,7 @@ $gray: #585A63//4F5159
       &-item
         //border: solid 1px
         display: inline-block
-        background: $black
+        background: $darkBlue
         color: white
         padding: 5px
         border-radius: 5px
@@ -91,6 +93,6 @@ $gray: #585A63//4F5159
     //border: solid 1px blue
     .fb-like
       margin: 0 5px 30px 5px
-      
+
     &-h4
       padding: 5px 5px
