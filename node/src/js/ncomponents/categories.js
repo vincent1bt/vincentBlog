@@ -17,7 +17,7 @@ export default class CategoryComponent extends React.Component {
 	}
 
 	getCategories() {
-		Promise.resolve(request.get("/posts/categorias.json"))
+		Promise.resolve(request.get("/posts/categories.json"))
 		  .then((data) => {
 		  	this.setState({categories: this.state.categories.concat(data.body)});
 		});
@@ -28,7 +28,7 @@ export default class CategoryComponent extends React.Component {
 		var id = this.refs.category_id.value.trim();
 		var index = this.refs.category_index.value;
 		Promise.resolve(request
-			.del(`/posts/categorias/${id}`)
+			.del(`/posts/categories/${id}`)
 			.setCsrfToken())
 		  .then((err, res) => {
 		  	this.setState( state => {
@@ -40,7 +40,7 @@ export default class CategoryComponent extends React.Component {
 
 	addCategory(cat) {
 		Promise.resolve(request
-			.post('/posts/categorias')
+			.post('/posts/categories')
 			.setCsrfToken()
 			.send({category: cat}))
 			.then((data) => {
