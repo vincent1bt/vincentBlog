@@ -26,7 +26,7 @@ class PostsController < ApplicationController
       redirect_to @post
     else
       flash[:alert] = "Error al editar #{@post.errors.full_messages}"
-      render :edit
+      render :edit, status: 400
     end
   end
 
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
     else
     	flash[:alert] = "Error al crear post #{@post.errors.full_messages}"
       @categories = Category.all
-    	render :new
+    	render :new, status: 400
     end
   end
 

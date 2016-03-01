@@ -25,8 +25,17 @@ gem 'cloudinary'
 gem 'pg_search'
 gem 'kaminari'
 
+gem 'faker'
+
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+  gem 'factory_girl_rails', '~> 4.6'
+end
+
+group :test do
+  gem 'capybara', '~> 2.6', '>= 2.6.2'
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
 end
 
 group :development do

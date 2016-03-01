@@ -14,6 +14,7 @@ class CategoriesController < ApplicationController
     if @category.save
       respond_to do |format|
           format.json { render json: @category }
+          format.html { redirect_to @category, status: :success }
       end
     else
     	flash[:alert] = "Error creando categoria #{@category.errors.full_messages}"
@@ -26,7 +27,7 @@ class CategoriesController < ApplicationController
     count_posts(@categories)
     text = "Tenemos categorías sobre: "
     set_meta_tags description: all_categories(text)
-    
+
     respond_to do |format|
         format.html
         format.json { render json: @categories }
