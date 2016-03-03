@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-export default class CategoryForm extends React.Component {
+class CategoryForm extends Component {
 	constructor(props) {
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,3 +22,9 @@ export default class CategoryForm extends React.Component {
 		)
 	}
 }
+
+CategoryForm.propTypes = {
+	addCategory: PropTypes.func.isRequired
+}
+
+export default CategoryForm;

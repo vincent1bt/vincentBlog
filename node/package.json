@@ -17,6 +17,7 @@
   "dependencies": {
     "epiceditor": "^0.2.0",
     "highlight.js": "^9.2.0",
+    "immutable": "^3.7.6",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "superagent": "^1.4.0",
