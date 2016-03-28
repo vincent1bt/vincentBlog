@@ -136,7 +136,7 @@ code {
   border-radius: 5px; }
 
 .post-container {
-  background: #F2F2F2;
+  background: white;
   border-radius: 5px;
   border: 2px solid #093255;
   margin-top: 94px;
@@ -182,9 +182,10 @@ code {
   .post-container-body {
     margin-top: 30px;
     padding: 0 10px;
-    font-size: 18px;
+    font-size: 1.2em;
     letter-spacing: 0.5px;
-    line-height: 25px; }
+    line-height: 1.625;
+    color: #425252; }
   .post-container-categories {
     border-top: solid 1px #585A63;
     margin-top: 30px;

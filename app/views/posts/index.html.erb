@@ -3,7 +3,7 @@
     <h1 class="posts-container-title-h1">Vicente Rodríguez blog</h1>
     <strong class="posts-container-title-strong"><i>Programación, desarollo web y más.</i></strong>
   </div>
-  
+
   <div class="posts-container-body">
     <ul class="posts-container-body-list">
       <% @posts.each do |post| %>
@@ -16,7 +16,7 @@
           <p class="posts-container-body-list-item-time"><%= post.created_at.strftime("%d %b. %Y") %></p>
         </li>
        <% end %>
-    <ul>
+    </ul>
 
   </div>
   <%= paginate @posts, :window => 2 %>
