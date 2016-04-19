@@ -1,6 +1,6 @@
 module Description
 	extend ActiveSupport::Concern
-	
+
   def all_categories(text)
 	  text = "#{text}"
 	  categories = Category.all
@@ -9,14 +9,6 @@ module Description
 	  end
 	  return text
 	end
-
-  def count_posts(categories)
-    @ar = {}
-    categories.each do |category|
-      @ar[category.name] = category.posts.count
-    end
-    return @ar
-  end
 
   def meta_pagination(num, url)
     if !num.nil? and num > 1

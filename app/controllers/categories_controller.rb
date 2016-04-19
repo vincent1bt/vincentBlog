@@ -24,13 +24,13 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    count_posts(@categories)
+    #count_posts(@categories)
     text = "Tenemos categorías sobre: "
     set_meta_tags description: all_categories(text)
 
     respond_to do |format|
         format.html
-        format.json { render json: @categories }
+        format.json
     end
   end
 

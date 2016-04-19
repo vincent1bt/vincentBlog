@@ -2,7 +2,7 @@
   "name": "assets",
   "scripts": {
     "webpack-pro": "webpack --progress --colors -p --config webpack.production.config.js",
-    "webpack-dev": "webpack --progress --profile --colors"
+    "webpack-dev": "webpack --progress --profile --colors -w"
   },
   "devDependencies": {
     "babel-core": "^6.3.21",

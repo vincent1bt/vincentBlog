@@ -1,19 +1,23 @@
 <% content_for(:title, "Vicente Rodríguez Blog - Categorias")%>
 <div class="categories-container">
   <div class="categories-container-title">
-    <h3 class="categories-container-title-h3">Categorias</h3>
+    <h3 class="categories-container-title-h3">Categorias / Cursos</h3>
   </div>
-  
+
   <div class="categories-container-text">
     <ul class="categories-container-text-list">
       <% @categories.each do |category| %>
         <li class="categories-container-text-list-item">
           <h2 class="categories-container-text-list-item-parr">
-            <%= link_to category, class: "categories-container-text-list-item-link" do %>
-              <%= category.name.capitalize %>
-            <% end %>
+            Curso de <%= category.name.capitalize %>
           </h2>
-          <p><%= pluralize(@ar[category.name],"post", "posts") %></p>
+          <p>Progreso del curso:</p>
+          <input type="hidden" value="category(<%= category.id %>)" class="input-category-id"/>
+          <div class="categories-container-text-list-item-progress">
+            <div class="categories-container-text-list-item-progress-bar progress-bar-category(<%= category.id %>)">
+            </div>
+          </div>
+          <%= link_to "", category, class: "categories-container-text-list-item-link"%>
         </li>
       <% end %>
     </ul>

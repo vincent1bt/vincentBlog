@@ -1,9 +1,11 @@
-(function() {
+import checkboxes from "js/posts/postProgress";
 
+(function() {
   document.addEventListener("page:load", onDomLoad);
   document.addEventListener("DOMContentLoaded", onDomLoad);
-  function onDomLoad() {
 
+  function onDomLoad() {
+    checkboxes();
     var codes = document.querySelectorAll("pre code");
 
     Array.prototype.forEach.call(codes, function(block, i) {

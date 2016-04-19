@@ -14,7 +14,16 @@
   </div>
 
   <article class="post-container-body">
-    <%= Sanitize.fragment(@post.body , Sanitize::Config::RELAXED).html_safe %>
+    <input type="hidden" value="<%= @post.id %>" class="input-id"/>
+    <input type="hidden" value="<%= @post.categories.map {|cat| cat.id } %>" class="input-categories"/>
+    <input type="hidden" value="<%= @post.categories.map {|cat| count_posts(cat) } %>" class="input-posts-categories"/>
+    
+    <%= Sanitize.fragment(@post.body, Sanitize::Config.merge(Sanitize::Config::RELAXED,
+        :elements => Sanitize::Config::RELAXED[:elements] + ['input'],
+        :attributes => {
+            'input' => ['class', 'type']
+        }
+    )).html_safe %>
   </article>
 
   <div class="post-container-categories">

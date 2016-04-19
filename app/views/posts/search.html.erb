@@ -3,27 +3,41 @@
     <h1 class="posts-container-title-h1">Vicente Rodríguez blog</h1>
     <strong class="posts-container-title-strong"><i>Programación, desarollo web y más.</i></strong>
   </div>
-  
+
   <div class="posts-container-form">
     <form action="/buscar" method="get" class="posts-container-form-search">
       <input type="search" placeholder="Busca algo que quieras aprender" name="search" autocomplete="off"/>
       <input type="submit" value="Buscar"/>
     </form>
   </div>
-  
+
   <div class="posts-container-body">
     <ul class="posts-container-body-list">
       <% if !@posts.empty? %>
-        <% @posts.each do |post| %>
-          <li class="posts-container-body-list-item">
-            <h2 class="posts-container-body-list-item-parr">
-              <%= link_to post, data: { no_turbolink: true }, class: "posts-container-body-list-item-link" do %>
-                <%= post.title.capitalize %>
+      <% @posts.each do |post| %>
+        <li class="posts-container-body-list-item">
+          <h2 class="posts-container-body-list-item-parr">
+            <%= post.title.capitalize %>
+          </h2>
+          <input type="hidden" value="post(<%= post.id %>)" class="input-posts-id"/>
+          <div class="posts-container-body-list-item-progress">
+            <div class="posts-container-body-list-item-progress-bar progress-bar-post(<%= post.id %>)">
+            </div>
+          </div>
+          <div class="posts-container-body-list-item-subtitle">
+            <p class="posts-container-body-list-item-subtitle-categories">
+              Categorias:
+              <% post.categories.each do |category| %>
+                  <%= category.name.capitalize %> |
               <% end %>
-            </h2>
-            <p class="posts-container-body-list-item-time"><%= post.created_at.strftime("%d %b. %Y") %></p>
-          </li>
-         <% end %>
+            </p>
+            <p class="posts-container-body-list-item-subtitle-time">
+              <%= post.created_at.strftime("%d %b. %Y") %>
+            </p>
+          </div>
+          <%= link_to "", post, data: { no_turbolink: true }, class: "posts-container-body-list-item-link" %>
+        </li>
+       <% end %>
       <% else %>
        <li class="posts-container-body-list-item--center">
         <strong class="posts-container-body-list-item-strong">No hay posts sobre tu busqueda :(</strong>
