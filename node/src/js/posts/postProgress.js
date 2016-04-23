@@ -71,10 +71,8 @@ function checkboxes() {
     localStorage.setItem(`post(${postId})`, JSON.stringify(newPost));
   }
 
-  for(const checkbox in checkboxes){
-    if(checkboxes.hasOwnProperty(checkbox)) {
-      checkboxes[checkbox].addEventListener("change", onCheckIn);
-    }
+  for(let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].addEventListener("change", onCheckIn);
   }
 }
 
