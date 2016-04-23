@@ -69,13 +69,18 @@ $darkBlue: #093255
     color: #425252
 
     pre
-      margin-left: -30px !important
-      margin-right: -30px !important
-      padding: 0 !important
+      @media (min-width: 1200px)
+        margin-left: -30px !important
+        margin-right: -30px !important
+        padding: 0 !important
 
     code
       border-radius: 0
-      padding: 35px !important
+      padding: 20px 15px !important
+
+      @media (min-width: 1200px)
+        border-radius: 0
+        padding: 35px !important
 
     .checkbox-div
       width: 100%
