@@ -15,18 +15,18 @@ export function getProgress(progress, className) {
 
 export function checkProgress(max, checked, callback = null) {
   if(checked === 0) {
-    return 0
+    return 0;
   } else if (checked < (max / 2)) {
-    return 25
+    return 25;
   } else if (checked === Math.round(max / 2)) {
-    return 50
+    return 50;
   } else if (checked > (max / 2) && checked < max) {
-    return 75
+    return 75;
   } else if (checked === max) {
     if(callback != null) {
       callback();
     }
-    return 100
+    return 100;
   }
 }
 
