@@ -1,6 +1,6 @@
 # config valid only for current version of Capistrano
 
-set :application, 'vincent_blog'
+set :application, 'appblog'
 set :repo_url, 'https://github.com/vincent1bt/vincentBlog.git'
 
 # Default branch is :master
