@@ -17,9 +17,9 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :app, %w{deployuser@162.243.34.100}
-role :web, %w{deployuser@162.243.34.100}
-role :db,  %w{deployuser@162.243.34.100}
+role :app, %w{vincentblog@69.164.204.68}
+role :web, %w{vincentblog@69.164.204.68}
+role :db,  %w{vincentblog@69.164.204.68}
 
 
 
@@ -42,9 +42,9 @@ role :db,  %w{deployuser@162.243.34.100}
 # Global options
 # --------------
  set :ssh_options, {
-   keys: %w(~/.ssh/rubyBlog),
+   keys: %w(~/.ssh/linodeServer),
    forward_agent: false,
-   auth_methods: %w(password)
+   auth_methods: %w(publickey password)
  }
 #
 # The server-based syntax can be used to override options:
