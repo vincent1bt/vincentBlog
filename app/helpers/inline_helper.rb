@@ -12,6 +12,7 @@ module InlineHelper
   end
 
   def inline_file(asset_path)
+    #file = Rails.application.assets_manifest.assets[asset_path]
     file = Rails.application.assets.find_asset(asset_path)
     file.nil? ? '' : read_file_contents(file)
   end
