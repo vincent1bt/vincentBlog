@@ -21,7 +21,9 @@
             <p class="posts-container-body-list-item-subtitle-categories">
               Categorias:
               <% post.categories.each do |category| %>
-                  <%= category.name.capitalize %> |
+                  <span class="posts-container-body-list-item-subtitle-categories-each">
+                    <%= category.name.capitalize %>
+                  </span>
               <% end %>
             </p>
             <p class="posts-container-body-list-item-subtitle-time">

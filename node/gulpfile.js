@@ -12,7 +12,7 @@ gulp.task("post", function() {
 	  .pipe(gulp.dest("./../app/assets/stylesstyles"));
 });
 
-gulp.task("sidewide", function() {
+gulp.task("sitewide", function() {
 	gulp.src("./src/styles/sitewide/main.sass")
 	  .pipe(sass().on("error", sass.logError))
 	  .pipe(autoprefixer({
@@ -32,4 +32,4 @@ gulp.task("dashboard", function() {
 	  .pipe(gulp.dest("../app/assets/stylesstyles"))
 });
 
-gulp.task("css", ["dashboard", "post", "sidewide"])
+gulp.task("css", ["dashboard", "post", "sitewide"])

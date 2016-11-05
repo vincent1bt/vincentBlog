@@ -16,7 +16,7 @@ $dark-gray: #425252
   overflow: hidden
   background: $white
   border-radius: 5px
-  margin-top: 74px
+  margin-top: 55px
   width: 98%
   max-width: 1300px
 
@@ -150,9 +150,18 @@ $dark-gray: #425252
 
           &-time
             margin-right: 2.5%
+            font-weight: lighter
 
           &-categories
             margin-left: 2.5%
+            color: $darkBlue
+            font-weight: lighter
+
+            &-each::after
+              content: "-"
+
+            &-each:last-child::after
+              content: ""
 
         &-progress
           width: 90%

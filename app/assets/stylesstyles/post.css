@@ -138,9 +138,8 @@ code {
 .post-container {
   background: white;
   border-radius: 5px;
-  border: 2px solid #093255;
-  margin-top: 94px;
-  width: 98%;
+  margin-top: 50px;
+  width: 100%;
   overflow: hidden;
   max-width: 1300px; }
   @media (min-width: 700px) {

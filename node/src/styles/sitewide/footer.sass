@@ -11,7 +11,7 @@ $black: #313338
   border-top: solid 0.8px
   position: fixed
   height: 47px
-  padding-top: 5px
+  padding-top: 3px
   bottom: 0
   width: 100%
   z-index: 1000
@@ -22,7 +22,7 @@ $black: #313338
 
   @media (max-width: 700px) and (orientation: landscape)
     position: relative
-  
+
   &-container
     //border: solid 1px red
     width: 100%
@@ -38,18 +38,19 @@ $black: #313338
         list-style-type: none
         height: 100%
         width: 25%
-        //border: solid 1px
         text-align: center
+        position: relative
 
         &-link
           width: 100%
           height: 100%
           text-decoration: none
           color: $black
-          //border: solid 1px
-          
+          position: absolute
+          top: 0
+          left: 0
+
           i
-            //border: solid 1px
             height: 50%
             width: 100%
             color: $naranja2
@@ -64,7 +65,3 @@ $black: #313338
             font-size: 12px
             color: $black
             font-weight: bold
-
-
-
-          
