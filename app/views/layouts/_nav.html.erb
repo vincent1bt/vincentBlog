@@ -29,7 +29,7 @@
       </li>
     	<% if logged_in? %>
         <li class="nav-container-list-item">
-          <%= link_to @current_user.username, admin_dashboard_index_url, data: { no_turbolink: true }, class: "nav-container-list-item-link"%>
+          <%= link_to @current_user.username, admin_dashboard_index_url, data: { turbolinks: false }, class: "nav-container-list-item-link"%>
         </li>
       <% end %>
       <li class="nav-container-list-item">

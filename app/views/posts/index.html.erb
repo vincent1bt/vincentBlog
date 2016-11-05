@@ -30,7 +30,7 @@
               <%= post.created_at.strftime("%d %b. %Y") %>
             </p>
           </div>
-          <%= link_to "", post, data: { no_turbolink: true }, class: "posts-container-body-list-item-link" %>
+          <%= link_to "", post, data: { turbolinks: false }, class: "posts-container-body-list-item-link" %>
         </li>
        <% end %>
     </ul>
