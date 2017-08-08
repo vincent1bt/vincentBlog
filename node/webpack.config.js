@@ -1,6 +1,6 @@
 var webpack = require("webpack"),
-	path    = require("path"),
-	srcPath = path.join(__dirname, "src");
+	  path    = require("path"),
+	  srcPath = path.join(__dirname, "src");
 
 module.exports = {
 	entry: {
@@ -9,18 +9,18 @@ module.exports = {
 		post: path.join(srcPath, "js/posts/post.js")
 		//newPost: path.join(srcPath, "js/postsNew/newPost.js")
 	},
-
 	output: {
-		path: "./../app/assets/javascripts",
+		path: path.resolve(__dirname, '../app/assets/javascripts'),
 		filename: '[name].js',
 	},
 	resolve: {
-		root: srcPath,
-		extensions: ["", ".js"],
-		modulesDirectores: ["node_modules"]
+		modules: [
+			srcPath,
+			'node_modules'
+		]
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js?$/,
 				exclude: /node_modules/,

@@ -3,8 +3,8 @@ es:
     categories: "categorias"
   views:
     pagination:
-      first: "Primera"
-      last: "Ultima"
+      first: "Primeros"
+      last: "Ultimos"
       previous: "Anterior"
       next: "Siguiente"
   activerecord:

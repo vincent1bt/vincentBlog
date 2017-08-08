@@ -8,10 +8,10 @@ class Admin::SessionsController < ApplicationController
   	user = User.find_by(email: params[:session][:email].downcase)
   	if user && user.authenticate(params[:session][:password])
   		log_in(user)
-  		flash[:notice] = "welcome"
+  		flash[:notice] = "Welcome"
   		redirect_to admin_dashboard_index_path
   	else
-  		flash.now[:alert] = 'invalid'
+  		flash.now[:alert] = 'Invalid'
   		render :new
   	end
   end

@@ -1,9 +1,9 @@
 module Description
 	extend ActiveSupport::Concern
 
-  def all_categories(text)
+  def all_categories(text, categories = nil)
 	  text = "#{text}"
-	  categories = Category.all
+	  categories = !categories.nil? ? categories : Category.all
 	  categories.each do |category|
 		  text += "#{category.name}, "
 	  end

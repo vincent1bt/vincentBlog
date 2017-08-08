@@ -23,10 +23,10 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.all
+    @categories = Category.select(:name)
     #count_posts(@categories)
     text = "Tenemos categorías sobre: "
-    set_meta_tags description: all_categories(text)
+    set_meta_tags description: all_categories(text, @categories)
 
     respond_to do |format|
         format.html

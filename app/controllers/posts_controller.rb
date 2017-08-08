@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index, :search]
 
   def index
-    @posts = Post.order(created_at: :desc).page(params[:page]).per(5)
+    @posts = Post.order(created_at: :desc).page(params[:page]).per(1).includes(:categories)
     url = "http://vincentblog.me/posts"
     page = params[:page]
     #gem meta_tags SEO

@@ -3,8 +3,9 @@ import categoriesProgress from 'js/siteWide/categoriesProgress';
 
 var loadCSS = require("./loadCSS");
 loadCSS('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css');
-document.addEventListener("page:load", loaded);
+
 document.addEventListener("DOMContentLoaded", loaded);
+document.addEventListener("turbolinks:load", loaded);
 
 function loaded() {
   postsProgress();

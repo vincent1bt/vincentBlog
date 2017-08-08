@@ -11,8 +11,9 @@
     "babel-preset-react": "^6.3.13",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^3.7.0",
     "gulp-sass": "^2.1.1",
-    "webpack": "1.13.0"
+    "webpack": "^2.5.1"
   },
   "dependencies": {
     "epiceditor": "^0.2.0",

@@ -6,7 +6,7 @@ import checkpost from "js/posts/postProgress";
 
   function onDomLoad() {
     checkpost();
-
+    
     var codes = document.querySelectorAll("pre code");
     Array.prototype.forEach.call(codes, function(block, i) {
       hljs.highlightBlock(block);
