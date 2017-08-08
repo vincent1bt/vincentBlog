@@ -17,9 +17,9 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :app, %w{ENV['PAGE_URL']}
-role :web, %w{ENV['PAGE_URL']}
-role :db,  %w{ENV['PAGE_URL']}
+role :app, %w{vincentblog@69.164.204.68}
+role :web, %w{vincentblog@69.164.204.68}
+role :db,  %w{vincentblog@69.164.204.68}
 
 
 
@@ -44,7 +44,7 @@ role :db,  %w{ENV['PAGE_URL']}
 
 
  set :ssh_options, {
-   keys: %w(ENV['SSH_ROUTE']),
+   keys: %w(~/.ssh/linode_Server),
    forward_agent: false,
    auth_methods: %w(publickey password)
  }
